@@ -14,6 +14,7 @@ public class IAUnitManager : UnityManager
 
     void DeplacementRandom()
     {
+
         float randomX = Random.Range(xMinLimit, xMaxLimit);
         float randomY = Random.Range(yMinLimit, yMaxLimit);
         Vector2 randomPosition = new Vector2(randomX, randomY);

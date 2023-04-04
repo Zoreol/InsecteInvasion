@@ -26,7 +26,12 @@ public class UnityManager : MonoBehaviour
     }
     public void InDeplacement(Vector2 pos)
     {
-        transform.position = pos;
+        float distance = Vector2.Distance(transform.position, pos);
+        if (distance > 0)
+        {
+            Vector3 nouvellePosition = Vector3.MoveTowards(transform.position, pos, speed * Time.deltaTime);
+            transform.position = pos;
+        }
     }
     void CheckDeplacement()
     {
