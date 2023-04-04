@@ -4,50 +4,20 @@ using UnityEngine;
 
 public class IAUnitManager : UnityManager
 {
-    [SerializeField] public float xLimit = 5.0f;
-    [SerializeField] public float yLimit = 5.0f;
+    [SerializeField] public float xMinLimit, xMaxLimit, yMinLimit, yMaxLimit;
 
     private bool stopMovement = false;
     private void Start()
     {
-        StartCoroutine(DeplacementRandom());
+        DeplacementRandom();
     }
 
-    IEnumerator DeplacementRandom()
+    void DeplacementRandom()
     {
-        while (true)
-        {
-            if (!stopMovement)
-            {
-                inDeplacementCondition = true;
-                ChangeDirection();
-                Vector2 movement = posDirection * speed;
-                float elapsedTime = 0.0f;
-                while (elapsedTime < 2.0f)
-                {
-                    Vector2 newPosition = (Vector2)transform.position + movement * Time.deltaTime;
-                    newPosition.x = Mathf.Clamp(newPosition.x, -xLimit, xLimit);
-                    newPosition.y = Mathf.Clamp(newPosition.y, -yLimit, yLimit);
-                    InDeplacement(newPosition);
-                    //transform.position = newPosition;
-                    elapsedTime += Time.deltaTime;
-                    
-                    yield return null;
-                }
-                inDeplacementCondition = false;
-
-            }
-
-            
-        }
-
-        //yield return new WaitForSeconds(3f);
-
-        //StartCoroutine(DeplacementRandom());
-    }
-    void ChangeDirection()
-    {
-        posDirection = Random.insideUnitCircle.normalized;
+        float randomX = Random.Range(xMinLimit, xMaxLimit);
+        float randomY = Random.Range(yMinLimit, yMaxLimit);
+        Vector2 randomPosition = new Vector2(randomX, randomY);
+        InDeplacement(randomPosition);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

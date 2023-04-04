@@ -398,10 +398,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 0
-  inDeplacement: 0
+  inDeplacementCondition: 0
   maxLife: 1
   attack: 0
   speed: 1
+  posDirection: {x: 0, y: 0}
+  xMinLimit: -2
+  xMaxLimit: 3
+  yMinLimit: -3
+  yMaxLimit: 2
 --- !u!1 &964055222
 GameObject:
   m_ObjectHideFlags: 0

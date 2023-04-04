@@ -27,7 +27,6 @@ public class UnityManager : MonoBehaviour
     public void InDeplacement(Vector2 pos)
     {
         transform.position = pos;
-        //transform.position = pos;
     }
     void CheckDeplacement()
     {
