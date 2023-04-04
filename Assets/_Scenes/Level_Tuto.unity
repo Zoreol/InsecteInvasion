@@ -398,7 +398,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 0
-  maxLife: 0
+  inDeplacement: 0
+  maxLife: 1
+  attack: 0
+  speed: 1
 --- !u!1 &964055222
 GameObject:
   m_ObjectHideFlags: 0

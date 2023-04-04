@@ -12,9 +12,10 @@ public class IAUnitManager : UnityManager
     IEnumerator DeplacementRandom()
     {
         Vector2 Pose = new Vector2(Random.Range(-5,5f), Random.Range(-5, 5f));
+        inDeplacement = true;
         InDeplacement(Pose);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         StartCoroutine(DeplacementRandom());
     }
