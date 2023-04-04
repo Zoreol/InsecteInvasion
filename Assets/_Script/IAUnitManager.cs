@@ -5,6 +5,7 @@ using UnityEngine;
 public class IAUnitManager : UnityManager
 {
     [SerializeField] public float xMinLimit, xMaxLimit, yMinLimit, yMaxLimit;
+    [SerializeField] float tempsEntrePositions = 2f;
 
     private bool stopMovement = false;
     private void Start()
@@ -19,6 +20,7 @@ public class IAUnitManager : UnityManager
         float randomY = Random.Range(yMinLimit, yMaxLimit);
         Vector2 randomPosition = new Vector2(randomX, randomY);
         InDeplacement(randomPosition);
+        Invoke("NouvellePositionCible", tempsEntrePositions);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,4 +29,10 @@ public class IAUnitManager : UnityManager
             TakeDamage();
         }
     }
+    /*
+    public void DeplacementRandom1()
+    {
+        // Appeler NouvellePositionCible() une première fois
+        NouvellePositionCible();
+    }*/
 }

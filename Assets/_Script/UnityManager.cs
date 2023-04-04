@@ -14,6 +14,9 @@ public class UnityManager : MonoBehaviour
 
     [SerializeField] public Vector2 posDirection;
 
+    private Vector3 positionActuelle;
+    private Vector3 positionCible;
+
     private void Start()
     {
         inDeplacementCondition = false;
@@ -21,17 +24,15 @@ public class UnityManager : MonoBehaviour
     }
     private void Update()
     {
-        transform.Translate(posDirection.normalized * (speed * Time.deltaTime), Space.World);
+        //transform.Translate(posDirection.normalized * (speed * Time.deltaTime), Space.World);
         //CheckDeplacement();
+        positionActuelle = Vector3.Lerp(positionActuelle, positionCible, speed * Time.deltaTime);
+
+        transform.position = positionActuelle;
     }
-    public void InDeplacement(Vector2 pos)
+    public void InDeplacement(Vector2 nouvellePositionCible)
     {
-        float distance = Vector2.Distance(transform.position, pos);
-        if (distance > 0)
-        {
-            Vector3 nouvellePosition = Vector3.MoveTowards(transform.position, pos, speed * Time.deltaTime);
-            transform.position = pos;
-        }
+        positionCible = nouvellePositionCible;
     }
     void CheckDeplacement()
     {
