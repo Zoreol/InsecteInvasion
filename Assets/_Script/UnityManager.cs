@@ -5,17 +5,18 @@ using UnityEngine;
 public class UnityManager : MonoBehaviour
 {
     [SerializeField] public float life;
-    [SerializeField] public bool inDeplacement;
+    [SerializeField] public bool inDeplacementCondition;
     [SerializeField] float maxLife;
     [SerializeField] float attack;
-    [SerializeField] float speed;
-    
 
-    private Vector2 posDirection;
+    [SerializeField] public float speed;
+
+
+    [SerializeField] public Vector2 posDirection;
 
     private void Start()
     {
-        inDeplacement = false;
+        inDeplacementCondition = false;
         life = maxLife;
     }
     private void Update()
@@ -25,18 +26,18 @@ public class UnityManager : MonoBehaviour
     }
     public void InDeplacement(Vector2 pos)
     {
-        posDirection = pos;
+        transform.position = pos;
         //transform.position = pos;
     }
     void CheckDeplacement()
     {
-        if (inDeplacement)
+        if (inDeplacementCondition)
         {
             transform.Translate(posDirection.normalized * (speed * Time.deltaTime), Space.World);
         }
         if (transform.position.x == posDirection.x && transform.position.y == posDirection.y)
         {
-            inDeplacement = false;
+            inDeplacementCondition = false;
         }
     }
     public void TakeDamage()
