@@ -13,6 +13,7 @@ public class IAUnitManager : UnityManager
     private Vector2 moveto;
     private Bounds bndFloor;
     private float timePaused;
+    private bool copain;
 
 
     void Start()
@@ -40,12 +41,25 @@ public class IAUnitManager : UnityManager
     {
         if (collision.CompareTag("Player"))
         {
-            
-            if (collision.CompareTag("Gendarme"))
-            {
-                Debug.Log("J'ai un copain a coter");
-            }
             Debug.Log("J'en repere un");
+            if (copain)
+            {
+                Debug.Log("On le marave ?");
+            }
+        }
+        if (collision.CompareTag("Gendarme"))
+        {
+            copain = true;
+            Debug.Log("J'ai un copain a coter");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Gendarme"))
+        {
+            copain = false;
+            Debug.Log("J'ai plus de copain");
         }
     }
 }
