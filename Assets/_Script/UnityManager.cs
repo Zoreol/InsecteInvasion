@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class UnityManager : MonoBehaviour
 {
+    [Header("Unit Settings")]
     [SerializeField] public float life;
     [SerializeField] public bool inDeplacementCondition;
     [SerializeField] float maxLife;
     [SerializeField] float attack;
-
     [SerializeField] public float speed;
 
-
-    [SerializeField] public Vector2 posDirection;
-
-    private Vector3 positionActuelle;
-    private Vector3 positionCible;
+    public Vector2 positionCible;
 
     private void Start()
     {
@@ -24,28 +20,30 @@ public class UnityManager : MonoBehaviour
     }
     private void Update()
     {
-        //transform.Translate(posDirection.normalized * (speed * Time.deltaTime), Space.World);
-        //CheckDeplacement();
-        positionActuelle = Vector3.Lerp(positionActuelle, positionCible, speed * Time.deltaTime);
-
-        transform.position = positionActuelle;
+        ForDeplacement();
     }
     public void InDeplacement(Vector2 nouvellePositionCible)
     {
         positionCible = nouvellePositionCible;
     }
-    /*
-    void CheckDeplacement()
+    void ForDeplacement()
     {
-        if (inDeplacementCondition)
+        // Calcule la direction vers la cible
+        Vector2 direction = positionCible - (Vector2)transform.position;
+
+        // Vérifie si l'objet est arrivé à la cible
+        if (direction.magnitude < 0.1f)
         {
-            transform.Translate(posDirection.normalized * (speed * Time.deltaTime), Space.World);
+            return;
         }
-        if (transform.position.x == posDirection.x && transform.position.y == posDirection.y)
-        {
-            inDeplacementCondition = false;
-        }
-    }*/
+
+        // Normalise la direction et multiplie par la vitesse
+        Vector2 movement = direction.normalized * speed * Time.deltaTime;
+
+        // Déplace l'objet dans la direction de la cible
+        transform.Translate(movement, Space.World);
+
+    }
     public void TakeDamage()
     {
         life--;
