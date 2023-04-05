@@ -34,6 +34,7 @@ public class UnityManager : MonoBehaviour
     {
         positionCible = nouvellePositionCible;
     }
+    /*
     void CheckDeplacement()
     {
         if (inDeplacementCondition)
@@ -44,7 +45,7 @@ public class UnityManager : MonoBehaviour
         {
             inDeplacementCondition = false;
         }
-    }
+    }*/
     public void TakeDamage()
     {
         life--;
