@@ -9,6 +9,7 @@ public class Selection : MonoBehaviour
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     private List<Unit_Identification> _selected_Unit_List;
+    public Vector3 moveToPosition;
 
     private void Awake()
     {
@@ -59,6 +60,15 @@ public class Selection : MonoBehaviour
                 }
             }
             Debug.Log(_selected_Unit_List.Count);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            _mouse_Position.GetMouseWorldPosition();
+            moveToPosition = _mouse_Position.worldPosition;
+            foreach(Unit_Identification unit_Identification in _selected_Unit_List)
+            {
+                unit_Identification.agent.SetDestination(new Vector3(moveToPosition.x, moveToPosition.y, transform.position.z));
+            }
         }
     }
 }

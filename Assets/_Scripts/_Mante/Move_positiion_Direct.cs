@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Move_positiion_Direct : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 _movePosition;
+    public void SetMovePosition(Vector3 movePosition)
     {
-        
+        _movePosition = movePosition;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        Vector3 moveDir = (_movePosition - transform.position).normalized;
+        GetComponent<IMove_Velocity>().SetVelocity(moveDir);
     }
 }

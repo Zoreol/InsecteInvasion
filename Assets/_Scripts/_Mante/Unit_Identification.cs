@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Unit_Identification : MonoBehaviour
 {
-    private GameObject _selected_GameObject;
+    [SerializeField]private GameObject _selected_GameObject;
+    public NavMeshAgent agent;
     private void Awake()
     {
-        _selected_GameObject = transform.Find("Selected").gameObject;
         SetSelectedVisible(false);
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     public void SetSelectedVisible(bool visible)
