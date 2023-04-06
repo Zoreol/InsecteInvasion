@@ -15,7 +15,7 @@ public class Unit_Identification : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(_spawn_Direction.transform.position);
-        _spawn_Direction.transform.position = new Vector3(_spawn_Direction.transform.position.x + 1.5f, _spawn_Direction.transform.position.y , _spawn_Direction.transform.position.z);
+        _spawn_Direction.transform.position = new Vector3(_spawn_Direction.transform.position.x + 2f, _spawn_Direction.transform.position.y , _spawn_Direction.transform.position.z);
     }
     public void SetSelectedVisible(bool visible)
     {

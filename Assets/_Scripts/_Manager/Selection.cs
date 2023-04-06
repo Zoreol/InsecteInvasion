@@ -96,7 +96,7 @@ public class Selection : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
 
-            /*_mouse_Position.GetMouseWorldPosition();
+            _mouse_Position.GetMouseWorldPosition();
             moveToPosition = _mouse_Position.worldPosition;
             
 
@@ -106,8 +106,8 @@ public class Selection : MonoBehaviour
             {
                 unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
-            }*/
-            _mouse_Position.GetMouseWorldPosition();
+            }
+            /*_mouse_Position.GetMouseWorldPosition();
             _endPosition = _mouse_Position.worldPosition;
             if (_selected_ennemi_List.Count == 0)
             {
@@ -139,7 +139,7 @@ public class Selection : MonoBehaviour
             {
                 unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
-            }
+            }*/
         }
     }
     void testTemporaire()
