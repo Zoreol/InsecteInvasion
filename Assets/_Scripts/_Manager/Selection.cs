@@ -8,7 +8,8 @@ public class Selection : MonoBehaviour
     [SerializeField] private Mouse_Position _mouse_Position;
     private Vector3 _startPosition;
     private Vector3 _endPosition;
-    private List<Unit_Identification> _selected_Unit_List;
+    public List<Unit_Identification> _selected_Unit_List;
+    //public List<> _selected_ennemi_List;
     public Vector3 moveToPosition;
 
     private void Awake()
@@ -17,6 +18,36 @@ public class Selection : MonoBehaviour
         _selection_Area_Transform.gameObject.SetActive(false);
     }
     void Update()
+    {
+        Unit_Selection_Mouvement();
+    }
+    private List<Vector3> GetPositionListAround(Vector3 startPosition, float[] ringDistanceArray, int[] ringPositionCountArray)
+    {
+        List<Vector3> positionList = new List<Vector3>();
+        positionList.Add(startPosition);
+        for (int i = 0; i < ringDistanceArray.Length; i++)
+        {
+            positionList.AddRange(GetPositionListAround(startPosition, ringDistanceArray[i], ringPositionCountArray[i]));
+        }
+        return positionList;
+    }
+    private List<Vector3> GetPositionListAround(Vector3 startPosition, float distance, int positionCount)
+    {
+        List<Vector3> positionList = new List<Vector3>();
+        for (int i = 0; i < positionCount; i++)
+        {
+            float angle = i * (360f / positionCount);
+            Vector3 dir = ApplyRotationToVector(new Vector3(1, 0), angle);
+            Vector3 position = startPosition + dir * distance;
+            positionList.Add(position);
+        }
+        return positionList;
+    }
+    private Vector3 ApplyRotationToVector(Vector3 vec, float angle)
+    {
+        return Quaternion.Euler(0, 0, angle) * vec;
+    }
+    private void Unit_Selection_Mouvement()
     {
         //Left Button pressed
         if (Input.GetMouseButtonDown(0))
@@ -44,7 +75,7 @@ public class Selection : MonoBehaviour
             _endPosition = _mouse_Position.worldPosition;
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(_startPosition, _endPosition);
             //Deselect all units
-            foreach(Unit_Identification unit_Identification in _selected_Unit_List)
+            foreach (Unit_Identification unit_Identification in _selected_Unit_List)
             {
                 unit_Identification.SetSelectedVisible(false);
             }
@@ -59,15 +90,19 @@ public class Selection : MonoBehaviour
                     _selected_Unit_List.Add(unit_Identification);
                 }
             }
-            Debug.Log(_selected_Unit_List.Count);
+
         }
         if (Input.GetMouseButtonDown(1))
         {
             _mouse_Position.GetMouseWorldPosition();
             moveToPosition = _mouse_Position.worldPosition;
-            foreach(Unit_Identification unit_Identification in _selected_Unit_List)
+
+            List<Vector3> targetPositionList = GetPositionListAround(moveToPosition, new float[] { 2f, 4f, 6f }, new int[] { 5, 10, 15 });
+            int targetPositionListIndex = 0;
+            foreach (Unit_Identification unit_Identification in _selected_Unit_List)
             {
-                unit_Identification.agent.SetDestination(new Vector3(moveToPosition.x, moveToPosition.y, transform.position.z));
+                unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
+                targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
             }
         }
     }

@@ -7,16 +7,16 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     [SerializeField] private GameObject[] _mantes;
     [SerializeField] private GameObject _villeInterface;
     [SerializeField] private GameObject _villeBouton;
+    [SerializeField] private GameObject _SpawnMante;
     private int _unitNumberCreating = 0;
-    private Transform _villePosition;
     private bool _creationUnit;
     public float timerSpawnBaseUnit = 10f;
     public int maxUnit = 15;
     public int numberUnit = 0;
+    public bool selectionOn = false;
 
     private void Start()
     {
-        _villePosition = this.transform;
     }
     private void Update()
     {
@@ -28,6 +28,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     {
         _villeInterface.SetActive(true);
         _villeBouton.SetActive(false);
+        selectionOn = true;
     }
     public void SpawnUnitBase()
     {
@@ -39,7 +40,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     public void LeaveUnitUI()
     {
         _villeInterface.SetActive(false);
-        _villeBouton.SetActive(true);
+        selectionOn = false;
     }
 
     private void CreateUnitStart()
@@ -59,8 +60,9 @@ public class Ville_Mante_Religieuse : MonoBehaviour
         {
             numberUnit++;
             _unitNumberCreating--;
-            Instantiate(_mantes[0], _villePosition);
+            Instantiate(_mantes[0], _SpawnMante.transform);
             timerSpawnBaseUnit = 10;
         }
     }
+    
 }

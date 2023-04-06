@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMove_Velocity 
+public class Ennemi_Identification : MonoBehaviour
 {
-    void SetVelocity(Vector3 velocityVector);
+    
 }
