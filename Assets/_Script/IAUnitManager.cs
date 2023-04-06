@@ -10,7 +10,7 @@ public class IAUnitManager : UnityManager
     public GameObject floor;
     public Vector2 targetPosition;
     public List<IAUnitManager> IAUnitManager_List;
-    //public bool posDefence;
+    public Transform formationPoint;
 
     private Vector2 moveto;
     private Bounds bndFloor;
@@ -44,7 +44,7 @@ public class IAUnitManager : UnityManager
 
     void DefencePosition(GameObject target)
     {
-        moveto = new Vector2(2, -2);
+        moveto = new Vector2(formationPoint.position.x, formationPoint.position.y);
         List<Vector2> targetPositionList = GetPositionListAround(moveto, 1f, 5);
 
         int targetPositionIndex = 0;
@@ -57,7 +57,6 @@ public class IAUnitManager : UnityManager
         {
             InDeplacement(moveto);
         }
-        //InDeplacement(moveto);
     }
 
     private List<Vector2> GetPositionListAround(Vector2 startPosition,float distance,int positionCount)
