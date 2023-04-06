@@ -41,7 +41,7 @@ public class IAUnitManager : UnityManager
         StartCoroutine(SetRandomDestination());
     }
 
-    void DefencePosition(GameObject target)
+    void GroupPosition(GameObject target)
     {
         moveto = new Vector2(formationPoint.position.x, formationPoint.position.y);
         List<Vector2> targetPositionList = GetPositionListAround(moveto, 1f, 5);
@@ -80,14 +80,13 @@ public class IAUnitManager : UnityManager
         if (collision.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Add(collision.gameObject.GetComponent<IAUnitManager>());
-            Debug.Log("J'ai un copain a coter");
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            DefencePosition(collision.gameObject);
+            GroupPosition(collision.gameObject);
         }
     }
 
@@ -96,7 +95,6 @@ public class IAUnitManager : UnityManager
         if (collision.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Remove(collision.gameObject.GetComponent<IAUnitManager>());
-            Debug.Log("J'ai plus de copain");
         }
     }
 }

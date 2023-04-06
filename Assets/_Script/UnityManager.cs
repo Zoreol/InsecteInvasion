@@ -10,6 +10,7 @@ public class UnityManager : MonoBehaviour
     [SerializeField] float maxLife;
     [SerializeField] float attack;
     [SerializeField] public float speed;
+    [SerializeField] bool canAttack;
 
     public Vector2 positionCible;
 
@@ -43,6 +44,14 @@ public class UnityManager : MonoBehaviour
         // Déplace l'objet dans la direction de la cible
         transform.Translate(movement, Space.World);
 
+    }
+
+    public void InAttack()
+    {
+        if (canAttack)
+        {
+
+        }
     }
     public void TakeDamage()
     {
