@@ -53,6 +53,10 @@ public class IAUnitManager : UnityManager
             IAUnitManager.InDeplacement(targetPositionList[targetPositionIndex]);
             targetPositionIndex = (targetPositionIndex + 1) % targetPositionList.Count;
         }
+        if (IAUnitManager_List.Count == 0)
+        {
+            InDeplacement(moveto);
+        }
         //InDeplacement(moveto);
     }
 
