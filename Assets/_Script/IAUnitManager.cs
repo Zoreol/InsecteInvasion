@@ -15,7 +15,6 @@ public class IAUnitManager : UnityManager
     private Vector2 moveto;
     private Bounds bndFloor;
     private float timePaused;
-    private bool copain;
 
     private void Awake()
     {
@@ -81,7 +80,6 @@ public class IAUnitManager : UnityManager
         if (collision.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Add(collision.gameObject.GetComponent<IAUnitManager>());
-            copain = true;
             Debug.Log("J'ai un copain a coter");
         }
     }
@@ -98,7 +96,6 @@ public class IAUnitManager : UnityManager
         if (collision.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Remove(collision.gameObject.GetComponent<IAUnitManager>());
-            copain = false;
             Debug.Log("J'ai plus de copain");
         }
     }
