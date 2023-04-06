@@ -6,17 +6,17 @@ public class UnityManager : MonoBehaviour
 {
     [Header("Unit Settings")]
     [SerializeField] public float life;
-    [SerializeField] public bool inDeplacementCondition;
     [SerializeField] float maxLife;
     [SerializeField] float attack;
     [SerializeField] public float speed;
     [SerializeField] bool canAttack;
-
+    [SerializeField] public bool InFormation;
+    [SerializeField] public bool PlayerTarget;
     public Vector2 positionCible;
+    public bool attackingEnnemi;
 
     private void Start()
     {
-        inDeplacementCondition = false;
         life = maxLife;
     }
     private void Update()
@@ -35,7 +35,15 @@ public class UnityManager : MonoBehaviour
         // Vérifie si l'objet est arrivé à la cible
         if (direction.magnitude < 0.1f)
         {
+            if (PlayerTarget && canAttack)
+            {
+                InFormation = true;
+            }
             return;
+        }
+        else
+        {
+            InFormation = false;
         }
 
         // Normalise la direction et multiplie par la vitesse
@@ -48,10 +56,20 @@ public class UnityManager : MonoBehaviour
 
     public void InAttack()
     {
-        if (canAttack)
+        if (canAttack && InFormation && PlayerTarget && !attackingEnnemi)
         {
-
+            StartCoroutine(OnAttackEnnemi());
         }
+    }
+
+    IEnumerator OnAttackEnnemi()
+    {
+        attackingEnnemi = true;
+        gameObject.GetComponent<IAUnitManager>().Attack();
+
+        yield return new WaitForSeconds(3f);
+
+        attackingEnnemi = false;
     }
     public void TakeDamage()
     {

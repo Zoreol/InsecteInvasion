@@ -10,6 +10,7 @@ public class IAUnitManager : UnityManager
     public GameObject floor;
     public Vector2 targetPosition;
     public List<IAUnitManager> IAUnitManager_List;
+    public GameObject playerUnit;
     public Transform formationPoint;
 
     private Vector2 moveto;
@@ -28,6 +29,18 @@ public class IAUnitManager : UnityManager
         StartCoroutine(SetRandomDestination());
     }
     
+    public void Attack()
+    {
+        if (Vector2.Distance(this.gameObject.transform.position, playerUnit.transform.position) <= 2)
+        {
+            playerUnit.GetComponent<UnityManager>().life-= 2f;
+        }
+        else
+        {
+            playerUnit.GetComponent<UnityManager>().life -= 1f;
+        }
+         
+    }
     IEnumerator SetRandomDestination()
     {
         float px = Random.Range(bndFloor.min.x + 0.5f, bndFloor.max.x - 0.5f);
@@ -77,7 +90,7 @@ public class IAUnitManager : UnityManager
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Gendarme"))
+        if (collision.CompareTag("Gendarme") || collision.CompareTag("Spider"))
         {
             IAUnitManager_List.Add(collision.gameObject.GetComponent<IAUnitManager>());
         }
@@ -86,15 +99,24 @@ public class IAUnitManager : UnityManager
     {
         if (collision.CompareTag("Player"))
         {
+            playerUnit = collision.gameObject;
+            PlayerTarget = true;
+            InAttack();
             GroupPosition(collision.gameObject);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Gendarme"))
+        if (collision.CompareTag("Gendarme") || collision.CompareTag("Spider"))
         {
             IAUnitManager_List.Remove(collision.gameObject.GetComponent<IAUnitManager>());
+        }
+        if (collision.CompareTag("Player"))
+        {
+            playerUnit = null;
+            PlayerTarget = false;
+            timePaused = 4;
         }
     }
 }
