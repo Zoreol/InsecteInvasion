@@ -7,6 +7,7 @@ TagManager:
   - Spawn_Ville_Base
   - Gendarme
   - Mantis
+  - Spider
   layers:
   - Default
   - TransparentFX
