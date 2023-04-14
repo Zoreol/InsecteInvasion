@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Reset_Spawn : MonoBehaviour
 {
+    //public GameObject
     void Update()
     {
-        if(transform.position.x > 15)
+        
+        if(transform.position.y < (transform.position.y - 40f))
         {
-            transform.position = new Vector3(-15, transform.position.y, transform.position.z);
+            //this.transform.position = new Vector3(-20, 20, transform.position.z);
         }
     }
 }

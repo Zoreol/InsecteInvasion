@@ -9,12 +9,13 @@ public class Selection : MonoBehaviour
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     public List<Unit_Identification> _selected_Unit_List;
-    //public List<> _selected_ennemi_List;
+    public List<Ennemi_Identification> _selected_ennemi_List;
     public Vector3 moveToPosition;
 
     private void Awake()
     {
         _selected_Unit_List = new List<Unit_Identification>();
+        _selected_ennemi_List = new List<Ennemi_Identification>();
         _selection_Area_Transform.gameObject.SetActive(false);
     }
     void Update()
@@ -94,8 +95,10 @@ public class Selection : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
+
             _mouse_Position.GetMouseWorldPosition();
             moveToPosition = _mouse_Position.worldPosition;
+            
 
             List<Vector3> targetPositionList = GetPositionListAround(moveToPosition, new float[] { 2f, 4f, 6f }, new int[] { 5, 10, 15 });
             int targetPositionListIndex = 0;
@@ -103,6 +106,58 @@ public class Selection : MonoBehaviour
             {
                 unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
+            }
+            /*_mouse_Position.GetMouseWorldPosition();
+            _endPosition = _mouse_Position.worldPosition;
+            if (_selected_ennemi_List.Count == 0)
+            {
+                moveToPosition = _mouse_Position.worldPosition;
+            }
+            else if (_selected_ennemi_List.Count > 0)
+            {
+                moveToPosition = _selected_ennemi_List[0].transform.position;
+            }
+            Collider2D[] collider2DArrayEnnemi = Physics2D.OverlapAreaAll(_startPosition, _endPosition);
+            foreach (Ennemi_Identification ennemi_Identification in _selected_ennemi_List)
+            {
+                ennemi_Identification.SetSelectedVisible(false);
+            }
+            _selected_ennemi_List.Clear();
+            //Select units within selection area
+            foreach (Collider2D collider2D in collider2DArrayEnnemi)
+            {
+                Ennemi_Identification ennemi_Identification = collider2D.GetComponent<Ennemi_Identification>();
+                if (ennemi_Identification != null)
+                {
+                    ennemi_Identification.SetSelectedVisible(true);
+                    _selected_ennemi_List.Add(ennemi_Identification);
+                }
+            }
+            List<Vector3> targetPositionList = GetPositionListAround(moveToPosition, new float[] { 2f, 4f, 6f }, new int[] { 5, 10, 15 });
+            int targetPositionListIndex = 0;
+            foreach (Unit_Identification unit_Identification in _selected_Unit_List)
+            {
+                unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
+                targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
+            }*/
+        }
+    }
+    void testTemporaire()
+    {
+        Collider2D[] collider2DArrayEnnemi = Physics2D.OverlapAreaAll(_startPosition, _endPosition);
+        foreach (Ennemi_Identification ennemi_Identification in _selected_ennemi_List)
+        {
+            ennemi_Identification.SetSelectedVisible(false);
+        }
+        _selected_ennemi_List.Clear();
+        //Select units within selection area
+        foreach (Collider2D collider2D in collider2DArrayEnnemi)
+        {
+            Ennemi_Identification ennemi_Identification = collider2D.GetComponent<Ennemi_Identification>();
+            if (ennemi_Identification != null)
+            {
+                ennemi_Identification.SetSelectedVisible(true);
+                _selected_ennemi_List.Add(ennemi_Identification);
             }
         }
     }

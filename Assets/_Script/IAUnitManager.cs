@@ -97,7 +97,7 @@ public class IAUnitManager : UnityManager
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Mantis"))
         {
             playerUnit = collision.gameObject;
             PlayerTarget = true;
