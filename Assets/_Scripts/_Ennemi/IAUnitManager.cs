@@ -90,7 +90,7 @@ public class IAUnitManager : UnityManager
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Gendarme") || collision.CompareTag("Spider"))
+        if (collision.CompareTag("Gendarme") == this.gameObject.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Add(collision.gameObject.GetComponent<IAUnitManager>());
         }
@@ -108,7 +108,7 @@ public class IAUnitManager : UnityManager
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Gendarme") || collision.CompareTag("Spider"))
+        if (collision.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Remove(collision.gameObject.GetComponent<IAUnitManager>());
         }
