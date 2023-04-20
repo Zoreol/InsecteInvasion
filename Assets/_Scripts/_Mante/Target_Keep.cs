@@ -7,6 +7,7 @@ public class Target_Keep : MonoBehaviour
     public Selection select;
     public Unit_Identification unit_identification;
     public GameObject _ennemi_to_keep;
+    [SerializeField] private Commune_Caracteristique_Mantis ccm;
     private void Awake()
     {
         select = FindObjectOfType<Selection>();
@@ -27,8 +28,15 @@ public class Target_Keep : MonoBehaviour
     {
         if(collision.tag == "Ennemi" && _ennemi_to_keep != null)
         {
-            //Attack mode
+            
             Debug.Log("Attack");
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Ennemi")
+        {
+
         }
     }
 }

@@ -192,10 +192,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 0c8fd6699b913f346b45866452351edd, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 0c8fd6699b913f346b45866452351edd, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 0c8fd6699b913f346b45866452351edd, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: bf246d8b4ab558c4fbe7564bc85c93be, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 0c6c52dcf10fe01499e2e710c312ad52, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 0c6c52dcf10fe01499e2e710c312ad52, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 0c6c52dcf10fe01499e2e710c312ad52, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 55c6bf9c0b68eee4bbe15a50dac4b0ee, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85260402068d4f04fb9805d193fe4b51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c6c52dcf10fe01499e2e710c312ad52, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -475,11 +475,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122824903}
   m_CullTransparentMesh: 1
---- !u!1 &192284830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1392196561783462762, guid: df03ddf50609df346b121840d8135fea, type: 3}
-  m_PrefabInstance: {fileID: 784095590}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &235392159
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,168 +816,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &784095590
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1392196561711552060, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: _SpawnMante
-      value: 
-      objectReference: {fileID: 1883691648}
-    - target: {fileID: 1392196561711552060, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: _mantank_bouton
-      value: 
-      objectReference: {fileID: 1140034866}
-    - target: {fileID: 1392196561711552060, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: _villeInterface
-      value: 
-      objectReference: {fileID: 2003096502}
-    - target: {fileID: 1392196561711552060, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: _mantes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552060, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: _mantes.Array.data[1]
-      value: 
-      objectReference: {fileID: 1633344266}
-    - target: {fileID: 1392196561711552062, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_Name
-      value: Ville Gendarme
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552062, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_TagString
-      value: Gendarme_Town
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 24.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561711552063, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561783462762, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_Name
-      value: Ville bouton gendarme
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561783462762, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561783462763, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 992970383}
-    - target: {fileID: 1392196561783462763, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AffichageVilleInterface
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561783462763, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Ville_Gendarme, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561969852612, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561969852612, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196561969852615, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_Name
-      value: Spawn_Ville_Gendarme
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196562341434627, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: vG
-      value: 
-      objectReference: {fileID: 992970383}
-    - target: {fileID: 1392196562341434627, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: _boutonVilleGendarme
-      value: 
-      objectReference: {fileID: 192284830}
-    - target: {fileID: 1392196562341434628, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_Size.x
-      value: 20.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196562341434628, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_Size.y
-      value: 20.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196562341434628, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dcc2663d37734e74fa93097cba6538c0, type: 3}
-    - target: {fileID: 1392196562341434628, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196562341434630, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196562341434630, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196562341434630, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196562341434630, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196562341434630, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392196563191277737, guid: df03ddf50609df346b121840d8135fea, type: 3}
-      propertyPath: m_Name
-      value: _SpawnManteGendarme
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1392196561711552060, guid: df03ddf50609df346b121840d8135fea, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: df03ddf50609df346b121840d8135fea, type: 3}
 --- !u!1 &954333068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,66 +849,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &992970380 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1392196561711552062, guid: df03ddf50609df346b121840d8135fea, type: 3}
-  m_PrefabInstance: {fileID: 784095590}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &992970383
+--- !u!114 &992970383 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 518911750403894111, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+  m_PrefabInstance: {fileID: 518911750590311888}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992970380}
-  m_Enabled: 0
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2899e0c375e5f4341b06c83a8aa2d80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mantes:
-  - {fileID: 3123467209723342806, guid: 5ed9310daf7f34d4aa962108bee8430e, type: 3}
-  - {fileID: 1633344266}
-  _villeInterface: {fileID: 1330014599}
-  _villeBouton: {fileID: 192284830}
-  _SpawnMante: {fileID: 1883691648}
-  _mantank_bouton: {fileID: 1140034866}
-  _base_unit: {fileID: 1325205135}
-  timerSpawnBaseUnit: 10
-  maxUnit: 15
-  selectionOn: 0
---- !u!58 &992970384
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992970380}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 20
---- !u!114 &992970385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992970380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8a9672fe233f142bbeef5db38f0d39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vg: {fileID: 992970383}
-  _gendarme: {fileID: 235392159}
-  _spawn: {fileID: 1883691648}
-  _timer_siege: 45
 --- !u!1 &1074349766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,10 +1468,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 0c8fd6699b913f346b45866452351edd, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 0c8fd6699b913f346b45866452351edd, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 0c8fd6699b913f346b45866452351edd, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: bf246d8b4ab558c4fbe7564bc85c93be, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: d953add88fa003649abc67aba0ac139d, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: a51fa596badaeb74dbbf4a100beb9200, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: d953add88fa003649abc67aba0ac139d, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: a51fa596badaeb74dbbf4a100beb9200, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1731,7 +1515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85260402068d4f04fb9805d193fe4b51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d953add88fa003649abc67aba0ac139d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2098,7 +1882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -38}
+  m_AnchoredPosition: {x: 0, y: -101.4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716743388
@@ -2198,11 +1982,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716743386}
   m_CullTransparentMesh: 1
---- !u!1 &1883691648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1392196563191277737, guid: df03ddf50609df346b121840d8135fea, type: 3}
-  m_PrefabInstance: {fileID: 784095590}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1897271379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,7 +2202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -38}
+  m_AnchoredPosition: {x: 0, y: -101.4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1954720837
@@ -2651,6 +2430,116 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1001 &518911750590311888
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 518911750403894081, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: vgs
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 518911750403894081, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: _gendarme
+      value: 
+      objectReference: {fileID: 235392159}
+    - target: {fileID: 518911750403894081, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 518911750403894111, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 518911750403894111, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: _base_unit
+      value: 
+      objectReference: {fileID: 1325205135}
+    - target: {fileID: 518911750403894111, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: _mantank_bouton
+      value: 
+      objectReference: {fileID: 1140034866}
+    - target: {fileID: 518911750403894111, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: _villeInterface
+      value: 
+      objectReference: {fileID: 1330014599}
+    - target: {fileID: 1468622187371125760, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187371125760, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187371125760, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187371125760, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187371125760, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208328, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_Name
+      value: Ville Gendarme
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468622187771208329, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798899641080711624, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+      propertyPath: _gendarme
+      value: 
+      objectReference: {fileID: 1633344266}
+    m_RemovedComponents:
+    - {fileID: 518911750403894081, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
 --- !u!1001 &637445536273354411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2708,6 +2597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1514f137420b7948806a59a2b8022c0, type: 3}
+--- !u!1 &1392196562682474959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1468622187371125791, guid: e9487851e990227469e8ed6a3157ae79, type: 3}
+  m_PrefabInstance: {fileID: 518911750590311888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1392196562941373190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2746,7 +2640,7 @@ PrefabInstance:
     - target: {fileID: 1392196561711552060, guid: df03ddf50609df346b121840d8135fea, type: 3}
       propertyPath: _SpawnMante.Array.data[1]
       value: 
-      objectReference: {fileID: 1883691648}
+      objectReference: {fileID: 1392196562682474959}
     - target: {fileID: 1392196561711552062, guid: df03ddf50609df346b121840d8135fea, type: 3}
       propertyPath: m_Name
       value: Ville Mante
@@ -2795,10 +2689,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1392196561783462760, guid: df03ddf50609df346b121840d8135fea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9ba6e5d24b834d419d9f4504bf1050e, type: 3}
     - target: {fileID: 1392196561783462762, guid: df03ddf50609df346b121840d8135fea, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1392196561783462763, guid: df03ddf50609df346b121840d8135fea, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9ba6e5d24b834d419d9f4504bf1050e, type: 3}
+    - target: {fileID: 1392196561783462763, guid: df03ddf50609df346b121840d8135fea, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9ba6e5d24b834d419d9f4504bf1050e, type: 3}
+    - target: {fileID: 1392196561783462763, guid: df03ddf50609df346b121840d8135fea, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9ba6e5d24b834d419d9f4504bf1050e, type: 3}
+    - target: {fileID: 1392196561783462763, guid: df03ddf50609df346b121840d8135fea, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 85260402068d4f04fb9805d193fe4b51, type: 3}
     - target: {fileID: 1392196561969852612, guid: df03ddf50609df346b121840d8135fea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.33
@@ -2919,7 +2833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123467209723342805, guid: 5ed9310daf7f34d4aa962108bee8430e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3123467209723342805, guid: 5ed9310daf7f34d4aa962108bee8430e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2931,7 +2845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123467209723342805, guid: 5ed9310daf7f34d4aa962108bee8430e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3123467209723342805, guid: 5ed9310daf7f34d4aa962108bee8430e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2943,7 +2857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123467209723342805, guid: 5ed9310daf7f34d4aa962108bee8430e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3123467209723342806, guid: 5ed9310daf7f34d4aa962108bee8430e, type: 3}
       propertyPath: m_Name
@@ -2958,6 +2872,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2746389662669042759, guid: d3e424e35ed607943b712cb129a7ef69, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879284935124480193, guid: d3e424e35ed607943b712cb129a7ef69, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875620964896153116, guid: d3e424e35ed607943b712cb129a7ef69, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8875620964896153117, guid: d3e424e35ed607943b712cb129a7ef69, type: 3}
       propertyPath: m_text
       value: "Mante \nReligieuse"

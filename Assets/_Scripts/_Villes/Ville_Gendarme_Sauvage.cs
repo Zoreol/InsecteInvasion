@@ -8,10 +8,15 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
     [SerializeField] private GameObject _gendarme;
     [SerializeField] private GameObject _spawn;
     [SerializeField] float _timer_siege = 45;
+    [SerializeField] Ville_Gendarme_Sauvage vgs;
     private float _timeSpawn = 30;
     private int _maxUnit = 10;
     private int _currentUnit = 0;
     private bool _siege = false;
+    private void Awake()
+    {
+        vg.selectionOn = true;
+    }
 
     private void Update()
     {
@@ -26,7 +31,8 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
             if(_timer_siege <= 0)
             {
                 vg.enabled = true;
-                this.enabled = false;
+                vg.selectionOn = false;
+                vgs.enabled = false;
             }
         }
         if (!_siege)
