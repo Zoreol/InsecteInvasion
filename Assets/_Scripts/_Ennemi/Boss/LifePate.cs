@@ -8,13 +8,15 @@ public class LifePate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Mantis"))
+        if (collision.CompareTag("Mantis") && collision.GetComponent<UnityManager>().inAttack)
         {
-            life--;
-            if (life <= 0)
-            {
-                Destroy(this.gameObject);
-            }
+                life--;
+                if (life <= 0)
+                {
+                    Destroy(this.gameObject);
+                }
+      
+            
         }
     }
 }

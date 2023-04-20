@@ -9,6 +9,7 @@ TagManager:
   - Mantis
   - Ennemi
   - Gendarme_Town
+  - Spider
   layers:
   - Default
   - TransparentFX
