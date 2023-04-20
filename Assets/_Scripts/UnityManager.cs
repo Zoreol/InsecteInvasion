@@ -10,6 +10,7 @@ public class UnityManager : MonoBehaviour
     [SerializeField] float attack;
     [SerializeField] public float speed;
     [SerializeField] bool canAttack;
+    [SerializeField] public bool inAttack;
     [SerializeField] public bool InFormation;
     [SerializeField] public bool PlayerTarget;
     public Vector2 positionCible;

@@ -1256,7 +1256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384878446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: -3.77, z: 0}
+  m_LocalPosition: {x: 2.7, y: -2.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1327,6 +1327,7 @@ MonoBehaviour:
   attack: 0
   speed: 0
   canAttack: 0
+  inAttack: 0
   InFormation: 0
   PlayerTarget: 0
   positionCible: {x: 0, y: 0}
@@ -1722,7 +1723,7 @@ GameObject:
   - component: {fileID: 1908761079}
   m_Layer: 0
   m_Name: Spider
-  m_TagString: Untagged
+  m_TagString: Spider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1760,6 +1761,7 @@ MonoBehaviour:
   attack: 0
   speed: 1.2
   canAttack: 1
+  inAttack: 0
   InFormation: 0
   PlayerTarget: 0
   positionCible: {x: 0, y: 0}
@@ -2028,7 +2030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48d4ec1811f12e44ae394d1cfb94872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 5
+  Cooldown: 488
   unitMantisList: []
   wantAttack: 0
   wantAttackBase: 0
