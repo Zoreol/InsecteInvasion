@@ -7,7 +7,7 @@ public class UnityManager : MonoBehaviour
     [Header("Unit Settings")]
     [SerializeField] public float life;
     [SerializeField] float maxLife;
-    [SerializeField] float attack;
+    [SerializeField] public float attack;
     [SerializeField] public float speed;
     [SerializeField] bool canAttack;
     [SerializeField] public bool inAttack;
@@ -62,7 +62,20 @@ public class UnityManager : MonoBehaviour
             StartCoroutine(OnAttackEnnemi());
         }
     }
+    public IEnumerator InStun()
+    {
+        float speedbase = speed;
+        float attackbase = attack;
+        speed = 0;
+        attack = 0;
+        inAttack = false;
 
+        yield return new WaitForSeconds(3f);
+
+        speed = speedbase;
+        attack = attackbase;
+        inAttack = true;
+    }
     IEnumerator OnAttackEnnemi()
     {
         attackingEnnemi = true;

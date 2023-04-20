@@ -10,7 +10,7 @@ public class IAUnitManager : UnityManager
     public GameObject floor;
     public Vector2 targetPosition;
     public List<IAUnitManager> IAUnitManager_List;
-    public GameObject playerUnit;
+    public List<GameObject> playerUnit;
     public Transform formationPoint;
 
     private Vector2 moveto;
@@ -31,13 +31,14 @@ public class IAUnitManager : UnityManager
     
     public void Attack()
     {
-        if (Vector2.Distance(this.gameObject.transform.position, playerUnit.transform.position) <= 2)
+        if (Vector2.Distance(this.gameObject.transform.position, playerUnit[0].transform.position) <= 2)
         {
-            playerUnit.GetComponent<UnityManager>().life-= 2f;
+            playerUnit[0].GetComponent<UnityManager>().life-= 2f;
         }
         else
         {
-            playerUnit.GetComponent<UnityManager>().life -= 1f;
+            playerUnit[0].GetComponent<UnityManager>().life -= 1f;
+            playerUnit[0].GetComponent<UnityManager>().StartCoroutine(InStun());
         }
          
     }
@@ -99,7 +100,7 @@ public class IAUnitManager : UnityManager
     {
         if (collision.CompareTag("Mantis"))
         {
-            playerUnit = collision.gameObject;
+            playerUnit.Add(collision.gameObject);
             PlayerTarget = true;
             InAttack();
             GroupPosition(collision.gameObject);
@@ -114,7 +115,7 @@ public class IAUnitManager : UnityManager
         }
         if (collision.CompareTag("Player"))
         {
-            playerUnit = null;
+            playerUnit.Remove(collision.gameObject);
             PlayerTarget = false;
             timePaused = 4;
         }
