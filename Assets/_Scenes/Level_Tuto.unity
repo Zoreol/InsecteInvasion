@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partDestruction: {fileID: 35439105}
   life: 5
 --- !u!1 &35964215
 GameObject:
@@ -372,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partDestruction: {fileID: 35964215}
   life: 5
 --- !u!1 &426531085
 GameObject:
@@ -497,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partDestruction: {fileID: 426531085}
   life: 5
 --- !u!1 &450240714
 GameObject:
@@ -508,6 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 450240715}
   - component: {fileID: 450240716}
+  - component: {fileID: 450240717}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -582,6 +586,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &450240717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450240714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partDestruction: {fileID: 1908761076}
+  life: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partDestruction: {fileID: 1027948271}
   life: 5
 --- !u!1 &1087504327
 GameObject:
@@ -1091,6 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partDestruction: {fileID: 1087504327}
   life: 5
 --- !u!1 &1246465504
 GameObject:
@@ -1256,7 +1276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384878446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7, y: -2.39, z: 0}
+  m_LocalPosition: {x: 0.34, y: -3.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1327,7 +1347,7 @@ MonoBehaviour:
   attack: 0
   speed: 0
   canAttack: 0
-  inAttack: 0
+  inAttack: 1
   InFormation: 0
   PlayerTarget: 0
   positionCible: {x: 0, y: 0}
@@ -1540,6 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partDestruction: {fileID: 1496179457}
   life: 5
 --- !u!1 &1770717949
 GameObject:
@@ -1771,7 +1792,7 @@ MonoBehaviour:
   floor: {fileID: 1770717949}
   targetPosition: {x: 0, y: 0}
   IAUnitManager_List: []
-  playerUnit: {fileID: 0}
+  playerUnit: []
   formationPoint: {fileID: 981559417}
 --- !u!50 &1908761079
 Rigidbody2D:
@@ -1975,6 +1996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partDestruction: {fileID: 1985097703}
   life: 5
 --- !u!1 &2012878940
 GameObject:
@@ -2185,6 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partDestruction: {fileID: 2125606003}
   life: 5
 --- !u!1001 &8290152099157336990
 PrefabInstance:

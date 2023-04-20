@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifePate : MonoBehaviour
+public class LifeForDestruction : MonoBehaviour
 {
-    [SerializeField] public float life;
+    [SerializeField] GameObject partDestruction;
+    [SerializeField] float life;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +14,7 @@ public class LifePate : MonoBehaviour
                 life--;
                 if (life <= 0)
                 {
-                    Destroy(this.gameObject);
+                    Destroy(partDestruction);
                 }
       
             
