@@ -8,9 +8,10 @@ public class Reset_Spawn : MonoBehaviour
     void Update()
     {
         
-        if(transform.position.y < (transform.position.y - 40f))
+        if(transform.localPosition.y < -22f)
         {
             //this.transform.position = new Vector3(-20, 20, transform.position.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 40, transform.localPosition.z);
         }
     }
 }

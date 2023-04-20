@@ -10,6 +10,7 @@ public class Selection : MonoBehaviour
     private Vector3 _endPosition;
     public List<Unit_Identification> _selected_Unit_List;
     public List<Ennemi_Identification> _selected_ennemi_List;
+    public List<Ennemi_Identification> _last_ennemi = null;
     public Vector3 moveToPosition;
 
     private void Awake()
@@ -81,6 +82,11 @@ public class Selection : MonoBehaviour
                 unit_Identification.SetSelectedVisible(false);
             }
             _selected_Unit_List.Clear();
+            foreach (Ennemi_Identification ennemi_Identification in _selected_ennemi_List)
+            {
+                ennemi_Identification.SetSelectedVisible(false);
+            }
+            _selected_ennemi_List.Clear();
             //Select units within selection area
             foreach (Collider2D collider2D in collider2DArray)
             {
@@ -100,14 +106,14 @@ public class Selection : MonoBehaviour
             moveToPosition = _mouse_Position.worldPosition;
             
 
-            List<Vector3> targetPositionList = GetPositionListAround(moveToPosition, new float[] { 2f, 4f, 6f }, new int[] { 5, 10, 15 });
+            /*List<Vector3> targetPositionList = GetPositionListAround(moveToPosition, new float[] { 2f, 4f, 6f }, new int[] { 5, 10, 15 });
             int targetPositionListIndex = 0;
             foreach (Unit_Identification unit_Identification in _selected_Unit_List)
             {
                 unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
-            }
-            /*_mouse_Position.GetMouseWorldPosition();
+            }*/
+            _mouse_Position.GetMouseWorldPosition();
             _endPosition = _mouse_Position.worldPosition;
             if (_selected_ennemi_List.Count == 0)
             {
@@ -139,7 +145,7 @@ public class Selection : MonoBehaviour
             {
                 unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
-            }*/
+            }
         }
     }
     void testTemporaire()
@@ -161,4 +167,5 @@ public class Selection : MonoBehaviour
             }
         }
     }
+    
 }

@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Ville_Mante_Religieuse : MonoBehaviour
+public class Ville_Gendarme : MonoBehaviour
 {
     [SerializeField] private GameObject[] _mantes;
     [SerializeField] private GameObject _villeInterface;
     [SerializeField] private GameObject _villeBouton;
     [SerializeField] private GameObject _SpawnMante;
     [SerializeField] private GameObject _mantank_bouton;
+    [SerializeField] private GameObject _base_unit;
     private int _unit_creating;
     private int _unitNumberCreating = 0;
     private bool _creationUnit;
@@ -23,6 +25,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     {
         CreateUnitStart();
         TimeBeforeUnitCreation();
+        IntteractionSpawnUnit();
     }
 
     public void AffichageVilleInterface()
@@ -33,7 +36,8 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     }
     public void SpawnUnitBase()
     {
-        if((Unit_number.number_unit + _unitNumberCreating) < maxUnit)
+        //if ((numberUnit + _unitNumberCreating) < maxUnit)
+        if ((Unit_number.number_unit + _unitNumberCreating) < maxUnit)
         {
             _unit_creating = 0;
             _unitNumberCreating++;
@@ -55,10 +59,11 @@ public class Ville_Mante_Religieuse : MonoBehaviour
 
     private void CreateUnitStart()
     {
-        if(_unitNumberCreating > 0)
+        if (_unitNumberCreating > 0)
         {
             _creationUnit = true;
-        }else _creationUnit = false;
+        }
+        else _creationUnit = false;
     }
     private void TimeBeforeUnitCreation()
     {
@@ -70,9 +75,33 @@ public class Ville_Mante_Religieuse : MonoBehaviour
         {
             Unit_number.number_unit++;
             _unitNumberCreating--;
-            Instantiate(_mantes[0], _SpawnMante.transform);
-            timerSpawnBaseUnit = 10;
+            Instantiate(_mantes[_unit_creating], _SpawnMante.transform);
+            if(_unit_creating == 0)
+            {
+                timerSpawnBaseUnit = 10;
+            }
+            if(_unit_creating == 1)
+            {
+                timerSpawnBaseUnit = 20;
+            }
+
+            Debug.Log(Unit_number.number_unit);
         }
     }
-    
+    void IntteractionSpawnUnit()
+    {
+        if (_unitNumberCreating > 0 && _unit_creating == 0)
+        {
+            _mantank_bouton.GetComponent<Button>().interactable = false;
+        }
+        if (_unitNumberCreating > 0 && _unit_creating == 1)
+        {
+            _base_unit.GetComponent<Button>().interactable = false;
+        }
+        else if (_unitNumberCreating <= 0)
+        {
+            _mantank_bouton.GetComponent<Button>().interactable = true;
+            _base_unit.GetComponent<Button>().interactable = true;
+        }
+    }
 }
