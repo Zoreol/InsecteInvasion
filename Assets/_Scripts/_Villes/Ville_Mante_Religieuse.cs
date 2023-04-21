@@ -8,7 +8,6 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     [SerializeField] private GameObject _villeInterface;
     [SerializeField] private GameObject _villeBouton;
     [SerializeField] private GameObject _SpawnMante;
-    [SerializeField] private GameObject _mantank_bouton;
     private int _unit_creating;
     private int _unitNumberCreating = 0;
     private bool _creationUnit;
@@ -39,14 +38,6 @@ public class Ville_Mante_Religieuse : MonoBehaviour
             _unitNumberCreating++;
         }
     }
-    public void SpawnUnitTank()
-    {
-        if ((Unit_number.number_unit + _unitNumberCreating) < maxUnit)
-        {
-            _unit_creating = 1;
-            _unitNumberCreating++;
-        }
-    }
     public void LeaveUnitUI()
     {
         _villeInterface.SetActive(false);
@@ -71,6 +62,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
             Unit_number.number_unit++;
             _unitNumberCreating--;
             Instantiate(_mantes[0], _SpawnMante.transform);
+            
             timerSpawnBaseUnit = 10;
         }
     }

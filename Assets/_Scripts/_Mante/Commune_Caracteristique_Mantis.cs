@@ -6,9 +6,10 @@ public class Commune_Caracteristique_Mantis : MonoBehaviour
 {
     public  int health;
     public  int damage;
-    [SerializeField] int _maxHealth;
+    public int _maxHealth;
     private void Awake()
     {
         health = _maxHealth;
     }
+
 }

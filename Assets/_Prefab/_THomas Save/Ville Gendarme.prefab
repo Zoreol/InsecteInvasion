@@ -124,13 +124,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468622187371125791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.5, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -9.500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1468622187771208329}
-  m_RootOrder: 2
+  m_Father: {fileID: 2989864251539347873}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1468622187521493503
 GameObject:
@@ -298,8 +298,6 @@ Transform:
   m_Children:
   - {fileID: 1468622188770484656}
   - {fileID: 1468622187247735708}
-  - {fileID: 1468622187371125760}
-  - {fileID: 1468622187994924146}
   - {fileID: 2989864251539347873}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -351,13 +349,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468622187994924145}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.3, y: -0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -14.300007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1468622187771208329}
-  m_RootOrder: 3
+  m_Father: {fileID: 2989864251539347873}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1468622187994924147
 MonoBehaviour:
@@ -650,9 +648,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1468622187371125760}
+  - {fileID: 1468622187994924146}
   m_Father: {fileID: 1468622187771208329}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6798899641080711624
 MonoBehaviour:
@@ -667,8 +667,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vg: {fileID: 518911750403894111}
+  _currentUnit: 0
   _gendarme: {fileID: 0}
   _spawn: {fileID: 1468622187371125791}
+  _floor_gendarme: {fileID: 0}
+  _formation: {fileID: 0}
   _timer_siege: 45
   vgs: {fileID: 6798899641080711624}
 --- !u!58 &4234905873483740819

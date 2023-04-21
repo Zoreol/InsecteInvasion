@@ -133,6 +133,7 @@ public class BossAraignée : MonoBehaviour
             if (unitMantisList.Count == 0)
             {
                 Debug.Log("je rentre");
+                Destroy(this.gameObject);
             }
         }
     }
