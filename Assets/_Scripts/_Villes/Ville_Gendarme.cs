@@ -19,6 +19,9 @@ public class Ville_Gendarme : MonoBehaviour
     public int maxUnit = 15;
     public bool selectionOn = false;
 
+    public bool firstnewUnit;
+
+
     private void Start()
     {
     }
@@ -78,8 +81,12 @@ public class Ville_Gendarme : MonoBehaviour
             _unitNumberCreating--;
             Instantiate(_mantes[_unit_creating], _SpawnMante.transform);
             //info spawn tank
-            //
-            
+            if (FindObjectOfType<Ville_Gendarme_Sauvage>().capturing && !firstnewUnit)
+            {
+                firstnewUnit = true;
+                FindObjectOfType<TutoManager>().textTuto.text = FindObjectOfType<TutoManager>().tutoPanel[8].textEtapeTuto;
+            }
+
             if (_unit_creating == 0)
             {
                 timerSpawnBaseUnit = 10;
@@ -112,7 +119,11 @@ public class Ville_Gendarme : MonoBehaviour
     {
         Unit_number.number_unit = 0;
         // info surpression
-        //
+        if (FindObjectOfType<Ville_Gendarme_Sauvage>().capturing && !firstnewUnit)
+        {
+            firstnewUnit = true;
+            FindObjectOfType<TutoManager>().textTuto.text = FindObjectOfType<TutoManager>().tutoPanel[8].textEtapeTuto;
+        }
         for (int i = 0; i < _mantes.Length; i++)
         {
             Destroy(_mantes[i]);

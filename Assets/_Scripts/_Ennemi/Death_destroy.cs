@@ -28,9 +28,16 @@ public class Death_destroy : MonoBehaviour
             }
             if(_timer < 0)
             {
-                Destroy(this.gameObject);
+                StartCoroutine(AnimDeath());
             }
             _timer -= Time.deltaTime;
         }
+    }
+
+    IEnumerator AnimDeath()
+    {
+        unit_To_Destroy.GetComponent<IAUnitManager>().animUnit.SetTrigger("Mort");
+           yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
     }
 }

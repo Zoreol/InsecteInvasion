@@ -104,6 +104,7 @@ public class IAUnitManager : UnityManager
             PlayerTarget = true;
             InAttack();
             GroupPosition(collision.gameObject);
+            //animUnit.SetBool("inFormation", true);
         }
     }
 
@@ -118,6 +119,7 @@ public class IAUnitManager : UnityManager
             playerUnit.Remove(collision.gameObject);
             PlayerTarget = false;
             timePaused = 4;
+            //animUnit.SetBool("inFormation", false);
         }
     }
 }
