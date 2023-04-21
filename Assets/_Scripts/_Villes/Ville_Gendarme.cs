@@ -106,4 +106,13 @@ public class Ville_Gendarme : MonoBehaviour
             _base_unit.GetComponent<Button>().interactable = true;
         }
     }
+    public void Supression_Mantes()
+    {
+        Unit_number.number_unit = 0;
+        for (int i = 0; i < _mantes.Length; i++)
+        {
+
+            Destroy(_mantes[i]);
+        }
+    } 
 }

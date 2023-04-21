@@ -66,5 +66,12 @@ public class Ville_Mante_Religieuse : MonoBehaviour
             timerSpawnBaseUnit = 10;
         }
     }
-    
+    public void Supression_Mantes()
+    {
+        Unit_number.number_unit = 0;
+        for (int i = 0; i < _mantes.Length; i++)
+        {
+            Destroy(_mantes[i]);
+        }
+    }
 }
