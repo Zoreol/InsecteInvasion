@@ -11,6 +11,7 @@ public class Ville_Gendarme : MonoBehaviour
     [SerializeField] private GameObject _SpawnMante;
     [SerializeField] private GameObject _mantank_bouton;
     [SerializeField] private GameObject _base_unit;
+    //[SerializeField] private GameObject _Direction_spawn_unit;
     private int _unit_creating;
     private int _unitNumberCreating = 0;
     private bool _creationUnit;
@@ -76,7 +77,10 @@ public class Ville_Gendarme : MonoBehaviour
             Unit_number.number_unit++;
             _unitNumberCreating--;
             Instantiate(_mantes[_unit_creating], _SpawnMante.transform);
-            if(_unit_creating == 0)
+            //info spawn tank
+            //
+            
+            if (_unit_creating == 0)
             {
                 timerSpawnBaseUnit = 10;
             }
@@ -104,4 +108,14 @@ public class Ville_Gendarme : MonoBehaviour
             _base_unit.GetComponent<Button>().interactable = true;
         }
     }
+    public void Supression_Mantes()
+    {
+        Unit_number.number_unit = 0;
+        // info surpression
+        //
+        for (int i = 0; i < _mantes.Length; i++)
+        {
+            Destroy(_mantes[i]);
+        }
+    } 
 }

@@ -12,6 +12,9 @@ public class Ennemi_Identification : MonoBehaviour
     }
     public void SetSelectedVisible(bool visible)
     {
-        _selected_GameObject.SetActive(visible);
+        if(_selected_GameObject != null)
+        {
+            _selected_GameObject.SetActive(visible);
+        }
     }
 }

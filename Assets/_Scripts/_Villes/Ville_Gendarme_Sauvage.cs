@@ -5,13 +5,15 @@ using UnityEngine;
 public class Ville_Gendarme_Sauvage : MonoBehaviour
 {
     public Ville_Gendarme vg;
+    public int _currentUnit = 0;
     [SerializeField] private GameObject _gendarme;
     [SerializeField] private GameObject _spawn;
+    [SerializeField] private GameObject _floor_gendarme;
+    [SerializeField] private GameObject _formation;
     [SerializeField] float _timer_siege = 45;
     [SerializeField] Ville_Gendarme_Sauvage vgs;
     private float _timeSpawn = 30;
     private int _maxUnit = 10;
-    private int _currentUnit = 0;
     private bool _siege = false;
     private void Awake()
     {
@@ -32,6 +34,8 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
             {
                 vg.enabled = true;
                 vg.selectionOn = false;
+                //ville capturer
+                //
                 vgs.enabled = false;
             }
         }
@@ -55,7 +59,11 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
     }
     void SpawnGendarme()
     {
-        Instantiate(_gendarme, _spawn.transform);
+        //Instantiate(_gendarme, _spawn.transform);
+        GameObject newGendarme = Instantiate(_gendarme, _spawn.transform);
+
+        newGendarme.GetComponent<IAUnitManager>().floor = _floor_gendarme;
+        newGendarme.GetComponent<IAUnitManager>().formationPoint = _formation.transform;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

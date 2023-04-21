@@ -12,6 +12,7 @@ public class Selection : MonoBehaviour
     public List<Ennemi_Identification> _selected_ennemi_List;
     public List<Ennemi_Identification> _last_ennemi = null;
     public Vector3 moveToPosition;
+    public Vector3 moveToPositionsafe;
 
     private void Awake()
     {
@@ -21,7 +22,15 @@ public class Selection : MonoBehaviour
     }
     void Update()
     {
+        if(_selected_ennemi_List.Count >0)
+        {
+            if (_selected_ennemi_List[0].gameObject.GetComponent<Death_destroy>().die == true)
+            {
+                _selected_ennemi_List.Clear();
+            }
+        }
         Unit_Selection_Mouvement();
+        
     }
     private List<Vector3> GetPositionListAround(Vector3 startPosition, float[] ringDistanceArray, int[] ringPositionCountArray)
     {
@@ -121,7 +130,11 @@ public class Selection : MonoBehaviour
             }
             else if (_selected_ennemi_List.Count > 0)
             {
-                moveToPosition = _selected_ennemi_List[0].transform.position;
+                if(_selected_ennemi_List[0].gameObject != null)
+                {
+                    moveToPosition = _selected_ennemi_List[0].transform.position;
+                }
+                
             }
             Collider2D[] collider2DArrayEnnemi = Physics2D.OverlapAreaAll(_startPosition, _endPosition);
             foreach (Ennemi_Identification ennemi_Identification in _selected_ennemi_List)
@@ -146,6 +159,8 @@ public class Selection : MonoBehaviour
                 unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
             }
+            //info deplacement
+            //
         }
     }
     void testTemporaire()

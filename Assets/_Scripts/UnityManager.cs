@@ -6,7 +6,7 @@ public class UnityManager : MonoBehaviour
 {
     [Header("Unit Settings")]
     [SerializeField] public float life;
-    [SerializeField] float maxLife;
+    [SerializeField] public float maxLife;
     [SerializeField] public float attack;
     [SerializeField] public float speed;
     [SerializeField] bool canAttack;
