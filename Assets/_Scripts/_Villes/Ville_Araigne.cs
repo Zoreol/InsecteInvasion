@@ -33,6 +33,8 @@ public class Ville_Araigne : MonoBehaviour
             _timer_siege -= Time.deltaTime;
             if (_timer_siege <= 0)
             {
+                //ville capturer
+                //
                 va.enabled = false;
             }
         }

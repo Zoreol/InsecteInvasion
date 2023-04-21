@@ -34,6 +34,8 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
             {
                 vg.enabled = true;
                 vg.selectionOn = false;
+                //ville capturer
+                //
                 vgs.enabled = false;
             }
         }

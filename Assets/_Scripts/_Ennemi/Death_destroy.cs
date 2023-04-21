@@ -23,6 +23,8 @@ public class Death_destroy : MonoBehaviour
             {
                 unit_To_Destroy.GetComponentInParent<Ville_Gendarme_Sauvage>()._currentUnit--;
                 _death = 0;
+                //ennemie tuer 1 fois
+                //
             }
             if(_timer < 0)
             {

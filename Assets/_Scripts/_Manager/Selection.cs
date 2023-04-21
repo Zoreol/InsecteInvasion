@@ -159,6 +159,8 @@ public class Selection : MonoBehaviour
                 unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
             }
+            //info deplacement
+            //
         }
     }
     void testTemporaire()

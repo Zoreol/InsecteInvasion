@@ -77,6 +77,8 @@ public class Ville_Gendarme : MonoBehaviour
             Unit_number.number_unit++;
             _unitNumberCreating--;
             Instantiate(_mantes[_unit_creating], _SpawnMante.transform);
+            //info spawn tank
+            //
             
             if (_unit_creating == 0)
             {
@@ -109,9 +111,10 @@ public class Ville_Gendarme : MonoBehaviour
     public void Supression_Mantes()
     {
         Unit_number.number_unit = 0;
+        // info surpression
+        //
         for (int i = 0; i < _mantes.Length; i++)
         {
-
             Destroy(_mantes[i]);
         }
     } 

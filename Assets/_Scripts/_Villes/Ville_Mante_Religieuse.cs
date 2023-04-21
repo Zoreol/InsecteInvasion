@@ -62,7 +62,8 @@ public class Ville_Mante_Religieuse : MonoBehaviour
             Unit_number.number_unit++;
             _unitNumberCreating--;
             Instantiate(_mantes[0], _SpawnMante.transform);
-            
+            // info spawn unité
+            //
             timerSpawnBaseUnit = 10;
         }
     }
