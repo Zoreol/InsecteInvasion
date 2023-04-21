@@ -5,7 +5,6 @@ using UnityEngine;
 public class UnityManager : MonoBehaviour
 {
     [Header("Unit Settings")]
-    public Animator animUnit;
     [SerializeField] public float life;
     [SerializeField] public float maxLife;
     [SerializeField] public float attack;
@@ -37,23 +36,14 @@ public class UnityManager : MonoBehaviour
         // Vérifie si l'objet est arrivé à la cible
         if (direction.magnitude < 0.1f)
         {
-            
             if (PlayerTarget && canAttack)
             {
                 InFormation = true;
             }
             return;
-            if (!InFormation)
-            {
-                //anim idle
-                Debug.Log("je marche pas");
-                animUnit.SetTrigger("Idle");
-            }
         }
         else
         {
-            //anim marche
-            animUnit.SetTrigger("Marche");
             InFormation = false;
         }
 

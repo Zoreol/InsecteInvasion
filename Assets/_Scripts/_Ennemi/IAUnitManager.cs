@@ -12,7 +12,6 @@ public class IAUnitManager : UnityManager
     public List<IAUnitManager> IAUnitManager_List;
     public List<GameObject> playerUnit;
     public Transform formationPoint;
-    
 
     private Vector2 moveto;
     private Bounds bndFloor;
@@ -29,17 +28,7 @@ public class IAUnitManager : UnityManager
 
         StartCoroutine(SetRandomDestination());
     }
-
-    private void Update()
-    {
-        /*
-        if (InFormation)
-        {
-            animUnit.SetTrigger("Attack");
-        }*/
-        
-    }
-
+    
     public void Attack()
     {
         if (Vector2.Distance(this.gameObject.transform.position, playerUnit[0].transform.position) <= 2)

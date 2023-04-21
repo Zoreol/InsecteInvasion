@@ -371,7 +371,6 @@ GameObject:
   - component: {fileID: 7937566597219654616}
   - component: {fileID: 2908697608151974751}
   - component: {fileID: 3801784018535662895}
-  - component: {fileID: 796532426722474437}
   m_Layer: 0
   m_Name: Model
   m_TagString: Ennemi
@@ -507,27 +506,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &796532426722474437
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8290152098235757352}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0fc3e108159c6f44eb54c77f4b1d7735, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8290152098520618095
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dec3f3a5dc0537469d2c7ee2555210d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animUnit: {fileID: 796532426722474437}
   life: 1
   maxLife: 1
   attack: 0
