@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2078454994905618265}
   - component: {fileID: 2078454994905618266}
   - component: {fileID: 2078454994905618264}
+  - component: {fileID: 4261125044483353213}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -61,4 +62,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selection_Area_Transform: {fileID: 0}
   _mouse_Position: {fileID: 2078454994905618266}
+  _selected_Unit_List: []
+  _selected_ennemi_List: []
+  _last_ennemi: []
   moveToPosition: {x: 0, y: 0, z: 0}
+  moveToPositionsafe: {x: 0, y: 0, z: 0}
+--- !u!114 &4261125044483353213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078454994905618267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3147c1bd346414e8929f438f6eec6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
