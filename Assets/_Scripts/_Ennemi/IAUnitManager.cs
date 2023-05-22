@@ -104,7 +104,7 @@ public class IAUnitManager : UnityManager
             PlayerTarget = true;
             InAttack();
             GroupPosition(collision.gameObject);
-            //animUnit.SetBool("inFormation", true);
+            animUnit.SetBool("inFormation", true);
         }
     }
 
