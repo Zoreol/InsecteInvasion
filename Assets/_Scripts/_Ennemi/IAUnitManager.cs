@@ -119,7 +119,7 @@ public class IAUnitManager : UnityManager
             playerUnit.Remove(collision.gameObject);
             PlayerTarget = false;
             timePaused = 4;
-            //animUnit.SetBool("inFormation", false);
+            animUnit.SetBool("inFormation", false);
         }
     }
 }
