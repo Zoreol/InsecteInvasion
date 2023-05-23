@@ -580,8 +580,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animUnit: {fileID: 9010106099862378025}
-  life: 1
-  maxLife: 1
+  life: 3
+  maxLife: 3
   attack: 0
   speed: 1
   canAttack: 0
@@ -590,6 +590,7 @@ MonoBehaviour:
   PlayerTarget: 0
   positionCible: {x: 0, y: 0}
   attackingEnnemi: 0
+  rotationSpeed: 0
   timePausedMin: 3
   timePausedMax: 15
   floor: {fileID: 0}

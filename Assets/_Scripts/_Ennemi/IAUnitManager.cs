@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IAUnitManager : UnityManager
 {
+    //paramettre des unit IA Paramettre
     [Header ("IA Settings")]
     public float timePausedMin;
     public float timePausedMax;
@@ -19,11 +20,13 @@ public class IAUnitManager : UnityManager
 
     private void Awake()
     {
+        //creer une list d'unit pour pourvoir ce rassembler si il y a une attaque
         IAUnitManager_List = new List<IAUnitManager>();
     }
 
     void Start()
     {
+        //cherche moi ma capacité de deplacement
         bndFloor = floor.GetComponent<SpriteRenderer>().bounds;
 
         StartCoroutine(SetRandomDestination());
@@ -31,6 +34,7 @@ public class IAUnitManager : UnityManager
     
     public void Attack()
     {
+        //en fonction de la distance je met plus ou moins de degat
         if (Vector2.Distance(this.gameObject.transform.position, playerUnit[0].transform.position) <= 2)
         {
             playerUnit[0].GetComponent<UnityManager>().life-= 2f;
@@ -44,10 +48,12 @@ public class IAUnitManager : UnityManager
     }
     IEnumerator SetRandomDestination()
     {
+        //creer moi un nouvelle destination
         float px = Random.Range(bndFloor.min.x + 0.5f, bndFloor.max.x - 0.5f);
         float py = Random.Range(bndFloor.min.y + 0.5f, bndFloor.max.y - 0.5f);
         timePaused = Random.Range(timePausedMin, timePausedMax);
         moveto = new Vector2(px, py);
+        //Donne l'info que tu peux partir
         InDeplacement(moveto);
 
         yield return new WaitForSeconds(timePaused);
@@ -57,6 +63,7 @@ public class IAUnitManager : UnityManager
 
     void GroupPosition(GameObject target)
     {
+        //en fonction de ma liste tu creer une formation
         moveto = new Vector2(formationPoint.position.x, formationPoint.position.y);
         List<Vector2> targetPositionList = GetPositionListAround(moveto, 1f, 5);
 
@@ -89,22 +96,23 @@ public class IAUnitManager : UnityManager
     {
         return Quaternion.Euler(0, 0, angle) * vector;
     }
+    //pour dire si il y a une personne de son coter ou pas
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Gendarme") == this.gameObject.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Add(collision.gameObject.GetComponent<IAUnitManager>());
         }
+        if (collision.CompareTag("Mantis"))
+        {
+            PlayerTarget = true;
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Mantis"))
         {
-            playerUnit.Add(collision.gameObject);
-            PlayerTarget = true;
-            InAttack();
-            GroupPosition(collision.gameObject);
-            animUnit.SetBool("inFormation", true);
+            TargetPlayer(collision);
         }
     }
 
@@ -114,12 +122,29 @@ public class IAUnitManager : UnityManager
         {
             IAUnitManager_List.Remove(collision.gameObject.GetComponent<IAUnitManager>());
         }
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Mantis"))
         {
             playerUnit.Remove(collision.gameObject);
             PlayerTarget = false;
             timePaused = 4;
             animUnit.SetBool("inFormation", false);
+        }
+    }
+
+    void TargetPlayer(Collider2D collision)
+    {
+        if (!PlayerTarget) return;
+
+        playerUnit.Add(collision.gameObject);
+
+        InAttack();
+        GroupPosition(collision.gameObject);
+        animUnit.SetBool("inFormation", true);
+
+        if (collision.GetComponent<UnityManager>().attackingEnnemi && !TakingDamage)
+        {
+            TakingDamage = true;
+           StartCoroutine(TakeDamage());
         }
     }
 }

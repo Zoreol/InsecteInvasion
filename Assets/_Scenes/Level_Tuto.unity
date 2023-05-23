@@ -547,7 +547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384878446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.34, y: -3.44, z: 0}
+  m_LocalPosition: {x: -13.09, y: -3.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -624,6 +624,7 @@ MonoBehaviour:
   PlayerTarget: 0
   positionCible: {x: 0, y: 0}
   attackingEnnemi: 0
+  rotationSpeed: 0
 --- !u!1 &1770717949
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,13 +981,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8290152098520618093, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
+      propertyPath: life
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290152098520618093, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
       propertyPath: floor
       value: 
       objectReference: {fileID: 1890247462}
     - target: {fileID: 8290152098520618093, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
+      propertyPath: maxLife
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290152098520618093, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
       propertyPath: animUnit
       value: 
       objectReference: {fileID: 8290152099157336992}
+    - target: {fileID: 8290152098520618093, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
+      propertyPath: rotationSpeed
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 8290152098520618093, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
       propertyPath: formationPoint
       value: 

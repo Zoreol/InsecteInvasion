@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnityManager : MonoBehaviour
 {
+    //base script Unit parametre
     [Header("Unit Settings")]
     public Animator animUnit;
     [SerializeField] public float life;
@@ -17,26 +18,33 @@ public class UnityManager : MonoBehaviour
     public Vector2 positionCible;
     public bool attackingEnnemi;
 
+    protected bool TakingDamage;
+    [SerializeField] private float rotationSpeed;
+
     private void Start()
     {
+        ///donne de la vie
         life = maxLife;
     }
     private void Update()
     {
+        //deplacement
         ForDeplacement();
+        //si je suis en formation j'attack
         if (InFormation)
         {
             animUnit.SetTrigger("Attack");
-            
         }
         
     }
     public void InDeplacement(Vector2 nouvellePositionCible)
     {
+        //quand j'ai une nouvelle position je vais la bas
         positionCible = nouvellePositionCible;
     }
     void ForDeplacement()
     {
+        if (InFormation && PlayerTarget) return;
         // Calcule la direction vers la cible
         Vector2 direction = positionCible - (Vector2)transform.position;
 
@@ -45,7 +53,6 @@ public class UnityManager : MonoBehaviour
         {
             if (!InFormation)
             {
-                Debug.Log("Je marche plus");
                 animUnit.SetTrigger("Idle");
             }
             else if (PlayerTarget && canAttack)
@@ -58,8 +65,8 @@ public class UnityManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Je marche");
             animUnit.SetTrigger("Marche");
+            
             InFormation = false;
         }
 
@@ -69,10 +76,15 @@ public class UnityManager : MonoBehaviour
         // Déplace l'objet dans la direction de la cible
         transform.Translate(movement, Space.World);
 
+        //rotation en fonction de la direction
+            Quaternion toRotate = Quaternion.LookRotation(Vector3.forward, movement);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotate, rotationSpeed * Time.deltaTime);
+
     }
 
     public void InAttack()
     {
+        //si tout mes parametre je peux attacker
         if (canAttack && InFormation && PlayerTarget && !attackingEnnemi)
         {
             StartCoroutine(OnAttackEnnemi());
@@ -80,6 +92,7 @@ public class UnityManager : MonoBehaviour
     }
     public IEnumerator InStun()
     {
+        //quand je suis stun
         float speedbase = speed;
         float attackbase = attack;
         speed = 0;
@@ -94,6 +107,7 @@ public class UnityManager : MonoBehaviour
     }
     IEnumerator OnAttackEnnemi()
     {
+        //donne un cooldown a chaque attaque
         attackingEnnemi = true;
         gameObject.GetComponent<IAUnitManager>().Attack();
 
@@ -101,17 +115,28 @@ public class UnityManager : MonoBehaviour
 
         attackingEnnemi = false;
     }
-    public void TakeDamage()
+    public IEnumerator TakeDamage()
     {
+        //prend des degats
+        animUnit.SetBool("Touche",true);
         life--;
+            yield return new WaitForSeconds(0.5f);
+        
         if (life <= 0f)
         {
-            InDeath();
+            StartCoroutine(InDeath());
         }
+        animUnit.SetBool("Touche", false);
+        TakingDamage = false;
     }
 
-    void InDeath()
+    IEnumerator InDeath()
     {
+        //meurt
+        animUnit.SetTrigger("Mort");
+
+        yield return new WaitForSeconds(0.7f);
+
         Destroy(gameObject);
     }
     
