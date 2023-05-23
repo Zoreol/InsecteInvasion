@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1339691958611816140}
   - component: {fileID: 6427204479125243046}
   - component: {fileID: 8578601674506856194}
-  - component: {fileID: 6039049920480712411}
+  - component: {fileID: 2245149455522120786}
   m_Layer: 0
   m_Name: Model
   m_TagString: Ennemi
@@ -234,7 +234,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &6039049920480712411
+--- !u!95 &2245149455522120786
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dec3f3a5dc0537469d2c7ee2555210d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animUnit: {fileID: 0}
+  animUnit: {fileID: 2245149455522120786}
   life: 1
   maxLife: 10
   attack: 0
@@ -456,7 +456,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &6752806279165876242
 MonoBehaviour:
