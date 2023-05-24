@@ -11,7 +11,7 @@ public class UnityManager : MonoBehaviour
     [SerializeField] public float maxLife;
     [SerializeField] public float attack;
     [SerializeField] public float speed;
-    [SerializeField] bool canAttack;
+    [SerializeField] protected bool canAttack;
     [SerializeField] public bool inAttack;
     [SerializeField] public bool InFormation;
     [SerializeField] public bool PlayerTarget;
@@ -19,7 +19,7 @@ public class UnityManager : MonoBehaviour
     public bool attackingEnnemi;
 
     protected bool TakingDamage;
-    [SerializeField] private float rotationSpeed;
+    [SerializeField] protected float rotationSpeed;
 
     private void Start()
     {
@@ -51,23 +51,24 @@ public class UnityManager : MonoBehaviour
         // Vérifie si l'objet est arrivé à la cible
         if (direction.magnitude < 0.1f)
         {
-            if (!InFormation)
+            if (canAttack)
+            {
+                InFormation = true;
+            }
+            else if (!InFormation)
             {
                 animUnit.SetTrigger("Idle");
             }
-            else if (PlayerTarget && canAttack)
-            {
-                
-                InFormation = true;
-            }
-            return;
             
+            return;
+
+
         }
         else
         {
-            animUnit.SetTrigger("Marche");
-            
-            InFormation = false;
+                animUnit.SetTrigger("Marche");
+
+                InFormation = false;
         }
 
         // Normalise la direction et multiplie par la vitesse
@@ -76,6 +77,7 @@ public class UnityManager : MonoBehaviour
         // Déplace l'objet dans la direction de la cible
         transform.Translate(movement, Space.World);
 
+        
         //rotation en fonction de la direction
             Quaternion toRotate = Quaternion.LookRotation(Vector3.forward, movement);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotate, rotationSpeed * Time.deltaTime);

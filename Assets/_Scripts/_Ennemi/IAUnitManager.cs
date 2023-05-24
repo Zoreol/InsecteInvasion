@@ -17,7 +17,7 @@ public class IAUnitManager : UnityManager
     private Vector2 moveto;
     private Bounds bndFloor;
     private float timePaused;
-    [SerializeField] bool spider;
+    public bool spider;
 
     private void Awake()
     {
@@ -155,6 +155,10 @@ public class IAUnitManager : UnityManager
     {
         if (!PlayerTarget) return;
 
+        if (PlayerTarget && spider)
+        {
+            canAttack = true;
+        }
         InAttack();
         GroupPosition(collision.gameObject);
         animUnit.SetBool("inFormation", true);
