@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2078454994905618266}
   - component: {fileID: 2078454994905618264}
   - component: {fileID: 4261125044483353213}
+  - component: {fileID: 8044328131753812228}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -67,6 +68,9 @@ MonoBehaviour:
   _last_ennemi: []
   moveToPosition: {x: 0, y: 0, z: 0}
   moveToPositionsafe: {x: 0, y: 0, z: 0}
+  firstSelection: 0
+  firstdeplacement: 0
+  firstattack: 0
 --- !u!114 &4261125044483353213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,3 +84,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  speed: 0
+  zoomspeed: 0
+  tutoManager: {fileID: 0}
+  firsscroll: 0
+--- !u!114 &8044328131753812228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078454994905618267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec45a5fa75839c47bc41df47ca5325b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstMouvement: 0
+  firstZoom: 0
+  firstUnitCreation: 0
+  selectUnit: 0
+  moveUnit: 0
+  discoverGendarmeTown: 0
+  attackGendarme: 0
+  captureGendarmeTown: 0
+  createKillUnit: 0
+  attackSpider: 0
+  captureSpiderTown: 0
