@@ -17,30 +17,33 @@ public class IAUnitManager : UnityManager
     private Vector2 moveto;
     private Bounds bndFloor;
     private float timePaused;
+    [SerializeField] bool spider;
 
     private void Awake()
     {
         //creer une list d'unit pour pourvoir ce rassembler si il y a une attaque
         IAUnitManager_List = new List<IAUnitManager>();
+        
     }
 
     void Start()
     {
         //cherche moi ma capacité de deplacement
         bndFloor = floor.GetComponent<SpriteRenderer>().bounds;
-
+        IAUnitManager_List.Clear();
         StartCoroutine(SetRandomDestination());
     }
-    
     public void Attack()
     {
         //en fonction de la distance je met plus ou moins de degat
         if (Vector2.Distance(this.gameObject.transform.position, playerUnit[0].transform.position) <= 2)
         {
+            animUnit.SetTrigger("DistanceCourt");
             playerUnit[0].GetComponent<UnityManager>().life-= 2f;
         }
         else
         {
+            animUnit.SetTrigger("DistanceLong");
             playerUnit[0].GetComponent<UnityManager>().life -= 1f;
             playerUnit[0].GetComponent<UnityManager>().StartCoroutine(InStun());
         }
@@ -66,14 +69,21 @@ public class IAUnitManager : UnityManager
         //en fonction de ma liste tu creer une formation
         moveto = new Vector2(formationPoint.position.x, formationPoint.position.y);
         List<Vector2> targetPositionList = GetPositionListAround(moveto, 1f, 5);
-
+        
         int targetPositionIndex = 0;
         foreach (IAUnitManager IAUnitManager in IAUnitManager_List)
         {
-            IAUnitManager.InDeplacement(targetPositionList[targetPositionIndex]);
-            targetPositionIndex = (targetPositionIndex + 1) % targetPositionList.Count;
+            for (int i = 0; i < IAUnitManager_List.Count; i++)
+            {
+                if (IAUnitManager_List[i] != null)
+                {
+                    IAUnitManager.InDeplacement(targetPositionList[targetPositionIndex]);
+                    targetPositionIndex = (targetPositionIndex + 1) % targetPositionList.Count;
+                }
+            }
+            
         }
-        if (IAUnitManager_List.Count == 0)
+        if (IAUnitManager_List.Count == 0 || IAUnitManager_List[0] == null)
         {
             InDeplacement(moveto);
         }
@@ -106,6 +116,8 @@ public class IAUnitManager : UnityManager
         if (collision.CompareTag("Mantis"))
         {
             PlayerTarget = true;
+
+            playerUnit.Add(collision.gameObject);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -118,6 +130,14 @@ public class IAUnitManager : UnityManager
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        for (int i = 0; i < IAUnitManager_List.Count; i++)
+        {
+            if (IAUnitManager_List[i] == null)
+            {
+                IAUnitManager_List.Remove(IAUnitManager_List[i]);
+            }
+        }
+        
         if (collision.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Remove(collision.gameObject.GetComponent<IAUnitManager>());
@@ -134,8 +154,6 @@ public class IAUnitManager : UnityManager
     void TargetPlayer(Collider2D collision)
     {
         if (!PlayerTarget) return;
-
-        playerUnit.Add(collision.gameObject);
 
         InAttack();
         GroupPosition(collision.gameObject);
