@@ -35,6 +35,7 @@ public class IAUnitManager : UnityManager
     }
     public void Attack()
     {
+        Debug.Log("J'attaque ?");
         //en fonction de la distance je met plus ou moins de degat
         if (Vector2.Distance(this.gameObject.transform.position, playerUnit[0].transform.position) <= 2)
         {
@@ -162,6 +163,11 @@ public class IAUnitManager : UnityManager
         InAttack();
         GroupPosition(collision.gameObject);
         animUnit.SetBool("inFormation", true);
+        if (PlayerTarget && InFormation)
+        {
+
+            animUnit.SetBool("Marche", false);
+        }
 
         if (collision.GetComponent<UnityManager>().attackingEnnemi && !TakingDamage)
         {

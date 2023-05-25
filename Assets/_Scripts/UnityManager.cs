@@ -54,19 +54,18 @@ public class UnityManager : MonoBehaviour
             if (canAttack)
             {
                 InFormation = true;
+                animUnit.SetBool("Marche", false);
             }
             else if (!InFormation)
             {
+                animUnit.SetBool("Marche", false);
                 animUnit.SetTrigger("Idle");
             }
-            
             return;
-
-
         }
         else
         {
-                animUnit.SetTrigger("Marche");
+                animUnit.SetBool("Marche",true);
 
                 InFormation = false;
         }
