@@ -10,15 +10,15 @@ public class Tutoriel : MonoBehaviour
     public bool _unitCreation = false;          // 3
     public bool _selectUnit = false;            // 4
     public bool _moveUnit = false;              // 11
-    public bool _recolteBuilding = false;       // 21
-    public bool _equipeManteRecolte = false;    // 31
-    public bool _recolterPucerons = false;      // 41
+    public bool _recolteBuilding = false;       // 21   a faire
+    public bool _equipeManteRecolte = false;    // 31   a faire
+    public bool _recolterPucerons = false;      // 41   a faire
     public bool _createFiveUnit = false;        // 122
-    public bool _gendarmeDiscover = false;      // 222
-    public bool _gendarmeKill = false;          // 322
+    public bool _gendarmeDiscover = false;      // 222  a faire
+    public bool _gendarmeKill = false;          // 322  a faire
     public bool _gendarmeTownCapture = false;   // 422
-    public bool _tankBuilding = false;          // 1333
-    public bool _manteTank = false;             // 2333
+    public bool _tankBuilding = false;          // 1333 a faire
+    public bool _manteTank = false;             // 2333 a faire
     public bool _spiderCapture = false;         
     public bool _coleoptereCapture = false;     
 

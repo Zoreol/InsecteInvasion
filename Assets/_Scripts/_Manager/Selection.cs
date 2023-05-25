@@ -14,12 +14,11 @@ public class Selection : MonoBehaviour
     public Vector3 moveToPosition;
     public Vector3 moveToPositionsafe;
 
-    //public bool firstSelection;
-    //public bool firstdeplacement;
-    //public bool firstattack;
+    private Tutoriel tutoriel;
 
     private void Awake()
     {
+        tutoriel = FindObjectOfType<Tutoriel>();
         _selected_Unit_List = new List<Unit_Identification>();
         _selected_ennemi_List = new List<Ennemi_Identification>();
         _selection_Area_Transform.gameObject.SetActive(false);
@@ -108,11 +107,10 @@ public class Selection : MonoBehaviour
                 {
                     unit_Identification.SetSelectedVisible(true);
                     _selected_Unit_List.Add(unit_Identification);
-                    /*if (FindObjectOfType<Ville_Mante_Religieuse>().firstUnitPlace && !firstSelection)
+                    if (!tutoriel._selectUnit)
                     {
-                        firstSelection = true;
-                        gameObject.GetComponent<Camera_Mouvement>().tutoManager.textTuto.text = gameObject.GetComponent<Camera_Mouvement>().tutoManager.tutoPanel[4].textEtapeTuto;
-                    }*/
+                        tutoriel._selectUnit = true;
+                    }
                     
                 }
             }
@@ -143,11 +141,10 @@ public class Selection : MonoBehaviour
                 if(_selected_ennemi_List[0].gameObject != null)
                 {
                     moveToPosition = _selected_ennemi_List[0].transform.position;
-                    /*if (firstdeplacement && !firstattack)
+                    if (!tutoriel._moveUnit)
                     {
-                        firstattack = true;
-                        gameObject.GetComponent<Camera_Mouvement>().tutoManager.textTuto.text = gameObject.GetComponent<Camera_Mouvement>().tutoManager.tutoPanel[6].textEtapeTuto;
-                    }*/
+                        tutoriel._moveUnit = true;
+                    }
                 }
                 
             }
@@ -174,12 +171,7 @@ public class Selection : MonoBehaviour
                 unit_Identification.agent.SetDestination(targetPositionList[targetPositionListIndex]);
                 targetPositionListIndex = (targetPositionListIndex + 1) % targetPositionList.Count;
             }
-            //info deplacement
-            /*if (firstSelection && !firstdeplacement)
-            {
-                firstdeplacement = true;
-                gameObject.GetComponent<Camera_Mouvement>().tutoManager.textTuto.text = gameObject.GetComponent<Camera_Mouvement>().tutoManager.tutoPanel[5].textEtapeTuto;
-            }*/
+            //
         }
     }
     void testTemporaire()
