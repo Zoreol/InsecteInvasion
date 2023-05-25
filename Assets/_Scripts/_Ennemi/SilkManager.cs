@@ -8,6 +8,7 @@ public class SilkManager : MonoBehaviour
     public float rotationSpeed;
     public Vector2 positionCible;
     public Animator animator;
+    public bool target;
 
     private void Update()
     {
@@ -36,7 +37,20 @@ public class SilkManager : MonoBehaviour
     {
         if (collision.CompareTag("Mantis"))
         {
-            animator.SetTrigger("Touch");
+            StartCoroutine(DestroyGameObject(collision.gameObject));
         }
+    }
+
+    private IEnumerator DestroyGameObject(GameObject player)
+    {
+        speed = 0;
+        target = true;
+        animator.SetTrigger("Touch");
+        player.GetComponent<UnityManager>().life -= 1f;
+        player.GetComponent<UnityManager>().Stuning();
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(this);
     }
 }

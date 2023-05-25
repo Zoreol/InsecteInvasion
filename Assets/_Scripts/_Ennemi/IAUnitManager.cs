@@ -13,6 +13,7 @@ public class IAUnitManager : UnityManager
     public List<IAUnitManager> IAUnitManager_List;
     public List<GameObject> playerUnit;
     public Transform formationPoint;
+    public GameObject Silk;
 
     private Vector2 moveto;
     private Bounds bndFloor;
@@ -35,7 +36,6 @@ public class IAUnitManager : UnityManager
     }
     public void Attack()
     {
-        Debug.Log("J'attaque ?");
         //en fonction de la distance je met plus ou moins de degat
         if (Vector2.Distance(this.gameObject.transform.position, playerUnit[0].transform.position) <= 2)
         {
@@ -45,8 +45,11 @@ public class IAUnitManager : UnityManager
         else
         {
             animUnit.SetTrigger("DistanceLong");
+            GameObject SilkTargetPlayer = Instantiate(Silk,transform);
+            SilkTargetPlayer.GetComponent<SilkManager>().positionCible = playerUnit[0].transform.position;
+            /*
             playerUnit[0].GetComponent<UnityManager>().life -= 1f;
-            playerUnit[0].GetComponent<UnityManager>().StartCoroutine(InStun());
+            playerUnit[0].GetComponent<UnityManager>().StartCoroutine(InStun());*/
         }
          
     }
@@ -125,6 +128,7 @@ public class IAUnitManager : UnityManager
     {
         if (collision.CompareTag("Mantis"))
         {
+            PlayerTarget = true;
             TargetPlayer(collision);
         }
     }

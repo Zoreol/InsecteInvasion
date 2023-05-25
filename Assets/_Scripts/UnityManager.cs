@@ -91,7 +91,12 @@ public class UnityManager : MonoBehaviour
             StartCoroutine(OnAttackEnnemi());
         }
     }
-    public IEnumerator InStun()
+    //fonction pour lui dire qu'il doit stun et pour se faire appeler
+    public void Stuning()
+    {
+        StartCoroutine(InStun());
+    }
+     IEnumerator InStun()
     {
         //quand je suis stun
         float speedbase = speed;
