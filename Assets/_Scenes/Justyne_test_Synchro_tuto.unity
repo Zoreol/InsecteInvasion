@@ -3287,6 +3287,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 58756372}
     m_Modifications:
+    - target: {fileID: 5209178671613694167, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178671613694167, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178671613694167, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178671613694167, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178671613694167, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking14End
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178671613694167, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178671613694167, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178671631436888, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178671631436888, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking3
+      objectReference: {fileID: 0}
     - target: {fileID: 5209178671942296841, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3390,6 +3426,302 @@ PrefabInstance:
     - target: {fileID: 5209178671998635501, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
       propertyPath: m_Name
       value: Panel_Mante_Dialogues
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672336213398, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672336213398, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672336213398, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178672336213398, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672336213398, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672336213398, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672336213398, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672343312175, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178672343312175, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteWelcome
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672504102818, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672504102818, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672504102818, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178672504102818, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672504102818, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672504102818, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672504102818, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672709802088, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672709802088, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672709802088, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178672709802088, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672709802088, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672709802088, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672709802088, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672724980714, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672724980714, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672724980714, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178672724980714, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672724980714, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672724980714, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672724980714, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672778511215, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672778511215, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672778511215, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178672778511215, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672778511215, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672778511215, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672778511215, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178672965975649, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178672965975649, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673136231301, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673136231301, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673136231301, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178673136231301, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673136231301, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673136231301, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673136231301, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673310661002, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673310661002, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673310661002, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178673310661002, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673310661002, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673310661002, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673310661002, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673402534323, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673402534323, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673402534323, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178673402534323, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673402534323, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673402534323, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673402534323, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673560185224, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673560185224, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673560185224, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178673560185224, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673560185224, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673560185224, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673560185224, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673607333063, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673607333063, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673607333063, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 139163523}
+    - target: {fileID: 5209178673607333063, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673607333063, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ManteTalking13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673607333063, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tutoriel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209178673607333063, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b70a5ccfade98a439887f5488c076d6, type: 3}
