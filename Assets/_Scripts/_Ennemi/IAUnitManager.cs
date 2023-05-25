@@ -30,7 +30,7 @@ public class IAUnitManager : UnityManager
     {
         //cherche moi ma capacité de deplacement
         bndFloor = floor.GetComponent<SpriteRenderer>().bounds;
-        IAUnitManager_List.Clear();
+        //IAUnitManager_List.Clear();
         StartCoroutine(SetRandomDestination());
     }
     public void Attack()
