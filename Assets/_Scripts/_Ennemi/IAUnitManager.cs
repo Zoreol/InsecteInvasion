@@ -23,6 +23,7 @@ public class IAUnitManager : UnityManager
     {
         //creer une list d'unit pour pourvoir ce rassembler si il y a une attaque
         IAUnitManager_List = new List<IAUnitManager>();
+        
     }
 
     void Start()
@@ -34,6 +35,7 @@ public class IAUnitManager : UnityManager
     }
     public void Attack()
     {
+        Debug.Log("J'attaque ?");
         //en fonction de la distance je met plus ou moins de degat
         if (Vector2.Distance(this.gameObject.transform.position, playerUnit[0].transform.position) <= 2)
         {
@@ -137,7 +139,7 @@ public class IAUnitManager : UnityManager
             }
         }
         
-        if (collision.CompareTag("Gendarme") || collision.CompareTag("Spider"))
+        if (collision.CompareTag("Gendarme"))
         {
             IAUnitManager_List.Remove(collision.gameObject.GetComponent<IAUnitManager>());
         }
@@ -163,7 +165,8 @@ public class IAUnitManager : UnityManager
         animUnit.SetBool("inFormation", true);
         if (PlayerTarget && InFormation)
         {
-            //animUnit.SetBool("Marche", false);
+
+            animUnit.SetBool("Marche", false);
         }
 
         if (collision.GetComponent<UnityManager>().attackingEnnemi && !TakingDamage)

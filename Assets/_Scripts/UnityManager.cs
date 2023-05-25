@@ -61,15 +61,13 @@ public class UnityManager : MonoBehaviour
                 animUnit.SetBool("Marche", false);
                 animUnit.SetTrigger("Idle");
             }
+            return;
         }
         else
         {
-            if (PlayerTarget && InFormation)
-            {
-                animUnit.SetBool("Marche", true);
-            }
+                animUnit.SetBool("Marche",true);
 
-                //InFormation = false;
+                InFormation = false;
         }
 
         // Normalise la direction et multiplie par la vitesse
@@ -80,8 +78,8 @@ public class UnityManager : MonoBehaviour
 
         
         //rotation en fonction de la direction
-        Quaternion toRotate = Quaternion.LookRotation(Vector3.forward, movement);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotate, rotationSpeed * Time.deltaTime);
+            Quaternion toRotate = Quaternion.LookRotation(Vector3.forward, movement);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotate, rotationSpeed * Time.deltaTime);
 
     }
 
@@ -123,7 +121,7 @@ public class UnityManager : MonoBehaviour
         //prend des degats
         animUnit.SetBool("Touche",true);
         life--;
-        yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.5f);
         
         if (life <= 0f)
         {
