@@ -7,15 +7,13 @@ public class Camera_Mouvement : MonoBehaviour
     public Camera cam;
     [SerializeField] float speed;
     [SerializeField] float zoomspeed;
-    public TutoManager tutoManager;
+    [SerializeField] private Tutoriel tutoriel;
 
-
-    bool firstmove = false;
-    public bool firsscroll = false;
     private void Start()
     {
-        tutoManager.textTuto.text = tutoManager.tutoPanel[0].textEtapeTuto;
+        tutoriel = FindObjectOfType<Tutoriel>();
     }
+
     private void Update()
     {
         MouveCamera();
@@ -28,21 +26,17 @@ public class Camera_Mouvement : MonoBehaviour
             cam.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * zoomspeed;
             if(cam.orthographicSize < 20)
             {
-                if (!firsscroll)
+                if (!tutoriel._zoom)
                 {
-                    firsscroll = true;
-
-                    tutoManager.textTuto.text = tutoManager.tutoPanel[2].textEtapeTuto;
+                    tutoriel._zoom = true;
                 }
                 cam.orthographicSize = 20;
             }
             if(cam.orthographicSize > 100)
             {
-                if (!firsscroll)
+                if (!tutoriel._zoom)
                 {
-                    firsscroll = true;
-
-                    tutoManager.textTuto.text = tutoManager.tutoPanel[2].textEtapeTuto;
+                    tutoriel._zoom = true;
                 }
                 cam.orthographicSize = 100;
             }
@@ -52,41 +46,33 @@ public class Camera_Mouvement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow) && cam.transform.position.x > -160f)
         {
-            if (!firstmove)
+            if (!tutoriel._cameraMouvment)
             {
-                firstmove = true;
-
-                tutoManager.textTuto.text = tutoManager.tutoPanel[1].textEtapeTuto;
+                tutoriel._cameraMouvment = true;
             }
             cam.transform.position = new Vector3(cam.transform.position.x - speed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
         }
         else if (Input.GetKey(KeyCode.RightArrow) && cam.transform.position.x < 356)
         {
-            if (!firstmove)
+            if (!tutoriel._cameraMouvment)
             {
-                firstmove = true;
-
-                tutoManager.textTuto.text = tutoManager.tutoPanel[1].textEtapeTuto;
+                tutoriel._cameraMouvment = true;
             }
             cam.transform.position = new Vector3(cam.transform.position.x + speed * Time.deltaTime, cam.transform.position.y, cam.transform.position.z);
         }
         if (Input.GetKey(KeyCode.DownArrow) && cam.transform.position.y > -210f)
         {
-            if (!firstmove)
+            if (!tutoriel._cameraMouvment)
             {
-                firstmove = true;
-
-                tutoManager.textTuto.text = tutoManager.tutoPanel[1].textEtapeTuto;
+                tutoriel._cameraMouvment = true;
             }
             cam.transform.position = new Vector3(cam.transform.position.x , cam.transform.position.y - speed * Time.deltaTime, cam.transform.position.z);
         }
         else if (Input.GetKey(KeyCode.UpArrow) && cam.transform.position.y < 314)
         {
-            if (!firstmove)
+            if (!tutoriel._cameraMouvment)
             {
-                firstmove = true;
-
-                tutoManager.textTuto.text = tutoManager.tutoPanel[1].textEtapeTuto;
+                tutoriel._cameraMouvment = true;
             }
             cam.transform.position = new Vector3(cam.transform.position.x , cam.transform.position.y + speed * Time.deltaTime, cam.transform.position.z);
         }

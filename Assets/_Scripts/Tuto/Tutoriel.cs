@@ -19,8 +19,8 @@ public class Tutoriel : MonoBehaviour
     public bool _gendarmeTownCapture = false;   // 422
     public bool _tankBuilding = false;          // 1333
     public bool _manteTank = false;             // 2333
-    public bool _spiderCapture = false;         // 3333
-    public bool _coleoptereCapture = false;     // 4333
+    public bool _spiderCapture = false;         
+    public bool _coleoptereCapture = false;     
 
     [SerializeField] private TMP_Text _panelTuto_1;
     [SerializeField] private TMP_Text _panelTuto_2;
@@ -30,89 +30,219 @@ public class Tutoriel : MonoBehaviour
     [SerializeField] private TMP_Text[] _manteTalking;
 
     [SerializeField] private GameObject[] _manteDialogues;
+
+    [SerializeField] private float timer = 1;
+    [SerializeField] private int securityPanel1 = 0;
+    [SerializeField] private int securityPanel2 = 0;
+    [SerializeField] private int securityPanel3 = 0;
+    [SerializeField] private int securityPanel4 = 0;
+    [SerializeField] private int securityDialogues = 0;
+
+    public int dialogueNumtest = 0;
     // Start is called before the first frame update
     void Start()
     {
-        _panelTuto_1.text = "Utilisez les flèches directionnelles pour vous déplacer sur la carte.";
-        _panelTuto_2.text = "Utilisez les flèches directionnelles pour vous déplacer sur la carte.";
-        _panelTuto_3.text = "Utilisez les flèches directionnelles pour vous déplacer sur la carte.";
-        _panelTuto_4.text = "Utilisez les flèches directionnelles pour vous déplacer sur la carte.";
+        _panelTuto_1.text = "Déplacez la caméra avec les flèches directionnelles.";
+        _panelTuto_2.text = "A l'aide de la molette et de votre souris, zoomer et dézoomer.";
+        _panelTuto_3.text = "Créez une mante grâce à votre tribu.";
+        _panelTuto_4.text = "maintenir clic gauche pour former un rectangle de sélection afin de sélectionner des mantes.";
 
         FirstsTextsMante();
+        _manteDialogues[0].SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
         ActivateDialogue();
+        Panel_Info();
+
+    }
+    void Panel_Info()
+    {
+        Panel_1_Following();
+        Panel_2_Following();
+        Panel_3_Following();
+        Panel_4_Following();
+    }
+    void Panel_1_Following()
+    {
+        if (_unitCreation && securityPanel1 == 0)
+        {
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                _panelTuto_1.text = "Clic droit pour déplacer toutes les unités sélectionnées.";
+                securityPanel1 = 1;
+                timer = 1;
+            }
+        }
+        if (_equipeManteRecolte && securityPanel1 == 1)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_1.text = "Créer 5 unités de mante.";
+                securityPanel1 = 2;
+                timer = 1;
+            }
+        }
+        if (_gendarmeKill && securityPanel1 == 2)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_1.text = "Construire la caserne des gendarmes dans la colonie alliée.";
+                securityPanel1 = 3;
+                timer = 1;
+            }
+        }
+    }
+    void Panel_2_Following()
+    {
+        if (_selectUnit && securityPanel2 == 0)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_2.text = "Depuis le village, construire une Puceronnière en cliquand sur l'icône du marteau.";
+                securityPanel2 = 1;
+                timer = 1;
+            }
+        }
+        if (_recolterPucerons && securityPanel2 == 1)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_2.text = "Déplacer au moins une mante vers le sud-ouest.";
+                securityPanel2 = 2;
+                timer = 1;
+            }
+        }
+        if (_gendarmeTownCapture && securityPanel2 == 2)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_2.text = "Supprimer une mante et en équiper une avec une armure de gendarme.";
+                securityPanel2 = 3;
+                timer = 1;
+            }
+        }
+    }
+    void Panel_3_Following()
+    {
+        if (_moveUnit && securityPanel3 == 0)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_3.text = "Sélectionner une mante et faire un clic droit sur le bâtiment pour équiper la mante.";
+                securityPanel3 = 1;
+                timer = 1;
+            }
+        }
+        if (_createFiveUnit && securityPanel3 == 1)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_3.text = "Tuer 1 gendarme.";
+                securityPanel3 = 2;
+                timer = 1;
+            }
+        }
+    }
+    void Panel_4_Following()
+    {
+        if (_recolteBuilding && securityPanel4 == 0)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_4.text = "Allez récolter des pucerons pour réaprovisionner le campement.";
+                securityPanel4 = 1;
+                timer = 1;
+            }
+        }
+        if (_gendarmeDiscover && securityPanel4 == 1)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                _panelTuto_4.text = "Capturer la tribu des gendarmes en positionnant au moins une mante à l'intérieur de celui-ci en attendant sa prise.";
+                securityPanel4 = 2;
+                timer = 1;
+            }
+        }
     }
     void ActivateDialogue()
     {
-        int security = 0;
-        if (_cameraMouvment && _zoom && security == 0)
+        if (_cameraMouvment && _zoom && securityDialogues == 0)
         {
             _manteDialogues[1].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_unitCreation && security == 1)
+        if (_unitCreation && securityDialogues == 1)
         {
             _manteDialogues[2].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_selectUnit && _moveUnit && security == 2)
+        if (_selectUnit && _moveUnit && securityDialogues == 2)
         {
             _manteDialogues[3].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_recolteBuilding && security == 3)
+        if (_recolteBuilding && securityDialogues == 3)
         {
             _manteDialogues[4].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_equipeManteRecolte && security == 4)
+        if (_equipeManteRecolte && securityDialogues == 4)
         {
             _manteDialogues[5].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_recolterPucerons && security == 5)
+        if (_recolterPucerons && securityDialogues == 5)
         {
             _manteDialogues[6].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_createFiveUnit && security == 6)
+        if (_createFiveUnit && securityDialogues == 6)
         {
             _manteDialogues[7].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_gendarmeDiscover && security == 7)
+        if (_gendarmeDiscover && securityDialogues == 7)
         {
             _manteDialogues[8].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_gendarmeKill && security == 8)
+        if (_gendarmeKill && securityDialogues == 8)
         {
             _manteDialogues[9].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_gendarmeTownCapture && security == 9)
+        if (_gendarmeTownCapture && securityDialogues == 9)
         {
             _manteDialogues[10].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_tankBuilding && security == 10)
+        if (_tankBuilding && securityDialogues == 10)
         {
             _manteDialogues[11].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_manteTank && security == 11)
+        if (_manteTank && securityDialogues == 11)
         {
             _manteDialogues[12].SetActive(true);
-            security++;
+            securityDialogues++;
         }
-        if (_spiderCapture && _coleoptereCapture && security == 12)
+        if (_spiderCapture && _coleoptereCapture && securityDialogues == 12)
         {
             _manteDialogues[13].SetActive(true);
-            security++;
+            securityDialogues++;
         }
     }
 
@@ -147,44 +277,49 @@ public class Tutoriel : MonoBehaviour
     public void ManteWelcome()
     {
         string text1 = "Avant de commencer votre croisade, apprenons les commandes de base.";
-        string text2 = "Pour vous aider tout au long de votre aventure, des objectifs s'afficheront en haut a droite de votre écran";
+        string text2 = "Pour vous aider tout au long de votre aventure, des objectifs s'afficheront en haut a droite de votre écran.";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[0].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteTalking[0].text = text2;
         }
-        if (dialogueNum == 3)
+        if (dialogueNumtest == 3)
         {
             _manteDialogues[0].SetActive(false);
 
         }
-        dialogueNum++;
+        dialogueNumtest++;
+        if (dialogueNumtest > 3)
+        {
+            dialogueNumtest = 1;
+        }
     }
-
     public void ManteTalking2()
     {
         string text1 = "Passons maintenant à la création de vos unités dont vous prendrez le contrôle.";
         string text2 = "Pour cela, survolez votre campement avec le curseur et cliquer sur l'icône d'oeuf pour créer une mante.";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[1].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteTalking[1].text = text2;
         }
-        if (dialogueNum == 3)
+        if (dialogueNumtest == 3)
         {
             _manteDialogues[1].SetActive(false);
         }
-        dialogueNum++;
+        dialogueNumtest++;
+        if (dialogueNumtest > 3)
+        {
+            dialogueNumtest = 1;
+        }
     }
     public void ManteTalking3()
     {
@@ -196,16 +331,19 @@ public class Tutoriel : MonoBehaviour
             "religiuses. Ensuite, indiquons-leur un point de ressource à récolter tel que les nids de pucerons, " +
             "un atout majeur dans le développement de la colonie";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[3].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteDialogues[3].SetActive(false);
         }
-        dialogueNum++;
+        dialogueNumtest++;
+        if (dialogueNumtest == 3)
+        {
+            dialogueNumtest = 1;
+        }
     }
     public void ManteTalking5()
     {
@@ -215,49 +353,59 @@ public class Tutoriel : MonoBehaviour
     {
         string text1 = "Cap sur l'Ouest où les éclaireurs nous ont renseigné sur la présence d'un nid de pucerons.";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[5].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteDialogues[5].SetActive(false);
         }
-        dialogueNum++;
+        dialogueNumtest++;
+        if (dialogueNumtest == 3)
+        {
+            dialogueNumtest = 1;
+        }
     }
     public void ManteTalking7()
     {
         string text1 = "Minces, nos ouvriers sont vulnérables face aux ennemis. Créez de nouvelles unités pour en faire des troupes.";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[6].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteDialogues[6].SetActive(false);
         }
-        dialogueNum++;
+        dialogueNumtest++;
+        if (dialogueNumtest == 3)
+        {
+            dialogueNumtest = 1;
+        }
     }
     public void ManteTalking8()
     {
         string text1 = "C'est bizarre.";
         string text2 = "J'ai cru voir du mouvement vers le sud_ouest, nous decrions sûrement envoyer nos mantes et découvrir qu'elle est l'origine de cette agitation.";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[7].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteTalking[7].text = text2;
         }
-        if (dialogueNum == 3)
+        if (dialogueNumtest == 3)
         {
             _manteDialogues[7].SetActive(false);
+        }
+        dialogueNumtest++;
+        if (dialogueNumtest > 3)
+        {
+            dialogueNumtest = 1;
         }
     }
     public void ManteTalking9()
@@ -278,50 +426,60 @@ public class Tutoriel : MonoBehaviour
             "Néanmoins, elles perdront aussi en force de frappe.";
         string text2 = "S'il y a trop de mante à votre goût, vous pouvez aussi les supprimer. Ne vous en faites pas, ce ne sont que des insectes facilement remplaçables.";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[11].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteTalking[11].text = text2;
         }
-        if (dialogueNum == 3)
+        if (dialogueNumtest == 3)
         {
             _manteDialogues[11].SetActive(false);
+        }
+        dialogueNumtest++;
+        if (dialogueNumtest > 3)
+        {
+            dialogueNumtest = 1;
         }
     }
     public void ManteTalking13()
     {
         string text1 = "Je crois en vous, ne me décevez pas !";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[12].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteDialogues[12].SetActive(false);
         }
-        dialogueNum++;
+        dialogueNumtest++;
+        if (dialogueNumtest == 3)
+        {
+            dialogueNumtest = 1;
+        }
     }
     public void ManteTalking14End()
     {
         string text1 = "Le jeu étant toujours en développement, seule la phase d'initiation peut être jouée pour le moment. " +
             "Si vous avez aimé cette phase d'introduction ou que vous voulez nous soutenir, n'hésitez pas à nous donner votre avis. ";
 
-        int dialogueNum = 0;
-        if (dialogueNum == 1)
+        if (dialogueNumtest == 1)
         {
             _manteTalking[13].text = text1;
         }
-        if (dialogueNum == 2)
+        if (dialogueNumtest == 2)
         {
             _manteDialogues[13].SetActive(false);
         }
-        dialogueNum++;
+        dialogueNumtest++;
+        if (dialogueNumtest == 3)
+        {
+            dialogueNumtest = 1;
+        }
     }
 
 }
