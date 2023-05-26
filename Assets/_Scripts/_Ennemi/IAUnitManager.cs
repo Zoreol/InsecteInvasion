@@ -130,6 +130,11 @@ public class IAUnitManager : UnityManager
         {
             PlayerTarget = true;
             TargetPlayer(collision);
+            if (InFormation && PlayerTarget)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 0f, 0f));
+                transform.LookAt(playerUnit[0].transform, Vector3.forward);
+            }
         }
     }
 
