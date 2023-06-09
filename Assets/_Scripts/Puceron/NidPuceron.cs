@@ -15,9 +15,6 @@ public class NidPuceron : MonoBehaviour
 
     // Variable pour le timer d'apparition
     private float timer;
-    private float limitTimer;
-
-    [SerializeField] private float speedPuceron = 5;
 
     // Temps limite entre chaque apparition
     private float waitTill = 2;
@@ -95,6 +92,10 @@ public class NidPuceron : MonoBehaviour
             else if (puceronVisible ==true & canMove == true) {
                 
                 TranslatePuceron();
+
+                
+                
+
                 
             }
 
@@ -102,7 +103,7 @@ public class NidPuceron : MonoBehaviour
             {
                 return;
             }           
-               
+           
         }
         else
         {
@@ -119,8 +120,7 @@ public class NidPuceron : MonoBehaviour
             //On retourne faux pour la visibilité des pucerons
             puceronVisible = false;
         }
-
-            
+        
     }
 
      void InitializeNid()
@@ -148,7 +148,7 @@ public class NidPuceron : MonoBehaviour
         objPuceron.AddComponent<NavMeshAgent>();
         objPuceron.AddComponent<AgentOverride2d>();
         objPuceron.AddComponent<AgentRotate2d>();
-        //objPuceron.GetComponent<NavMeshAgent>().areaMask = NavMesh.GetAreaFromName("Walkable");
+        
         eachPuceron.Add(objPuceron);
 
         canMove = true;
@@ -167,20 +167,25 @@ public class NidPuceron : MonoBehaviour
             // On récupère un point aléatoirement dans un cercle
             Vector2 posCircle = Random.insideUnitCircle.normalized *10;
             
-            Vector3 Destination_puceron = this.transform.position + new Vector3(posCircle.x , posCircle.y , 1);
+            Vector3 destination_puceron = this.transform.position + new Vector3(posCircle.x , posCircle.y , 1);
             
-            eachPuceron[i].transform.position = new Vector3(eachPuceron[i].transform.position.x, eachPuceron[i].transform.position.y, 1);
+            
             
             // On attribue la destination de chaque navmesh
-            eachPuceron[i].GetComponent<NavMeshAgent>().SetDestination(Destination_puceron );
-            
+            eachPuceron[i].GetComponent<NavMeshAgent>().SetDestination(destination_puceron );
+                
+
+
+
+
             //On patiente avant de relancer un mouvement 
             StartCoroutine("Wait");
             
              }
+           
 
 
-        }
+            }
 
         else { return; }       
         
@@ -190,14 +195,11 @@ public class NidPuceron : MonoBehaviour
     {
         
         yield return new WaitForSeconds(10);
-        Debug.Log("recall");
+        
         canMove = true;
     }
 
-    void UpdateAnimation()
-    {
-        
-    }
+    
 
 
 }
