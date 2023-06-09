@@ -23,7 +23,7 @@ public class UnityManager : MonoBehaviour
     }
     private void Update()
     {
-        ForDeplacement();
+        //ForDeplacement();
         if (InFormation)
         {
             animUnit.SetTrigger("Attack");

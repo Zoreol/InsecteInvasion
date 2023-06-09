@@ -1,6 +1,8 @@
+using NavMeshPlus.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NidPuceron : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class NidPuceron : MonoBehaviour
     private float timer;
     private float limitTimer;
 
+    [SerializeField] private float speedPuceron = 5;
+
     // Temps limite entre chaque apparition
     private float waitTill = 2;
 
@@ -26,6 +30,8 @@ public class NidPuceron : MonoBehaviour
     // Verification d'apparition de puceron
 
     private bool puceronVisible = false;
+
+    private bool canMove = true;
 
     // On crée un list pour stocker mles pucerons 
 
@@ -60,6 +66,7 @@ public class NidPuceron : MonoBehaviour
             if (nbPuceron + addPuceron  < 100)
             {
                 AddWithTime(addPuceron);
+                
             }
             else
             {
@@ -85,37 +92,34 @@ public class NidPuceron : MonoBehaviour
                 puceronVisible = true;
             }
 
-            else {
-                //StartCoroutine("Wait");
+            else if (puceronVisible ==true & canMove == true) {
                 
-                return;
+                TranslatePuceron();
+                
             }
 
-        
-
+            else
+            {
+                return;
+            }           
                
-
-
         }
         else
         {
             // Si les pucerons sont 0
 
-            // Alors on détruit tout les pucerons dans le tableau
+             // Alors on détruit tout les pucerons dans le tableau
             foreach (GameObject obj in eachPuceron)
             {
+                
                 Destroy(obj);
             }
 
+            eachPuceron.Clear();
             //On retourne faux pour la visibilité des pucerons
             puceronVisible = false;
         }
 
-        while (puceronVisible == true)
-        {
-            StartCoroutine("Wait");
-        }
-        
             
     }
 
@@ -134,34 +138,67 @@ public class NidPuceron : MonoBehaviour
         // On reboot le timer
         timer = 0;
 
+        
+
     }
 
     void CreatePuceron()
     {
-        GameObject obj = Instantiate(puceronPrefab, this.transform.position,  new Quaternion(0, 0, Random.Range(0, 360),0), this.transform) as GameObject;
-        eachPuceron.Add(obj);
+        GameObject objPuceron = Instantiate(puceronPrefab, this.transform.position,  new Quaternion(0, 0, Random.Range(0, 360),0), this.transform) as GameObject;
+        objPuceron.AddComponent<NavMeshAgent>();
+        objPuceron.AddComponent<AgentOverride2d>();
+        objPuceron.AddComponent<AgentRotate2d>();
+        //objPuceron.GetComponent<NavMeshAgent>().areaMask = NavMesh.GetAreaFromName("Walkable");
+        eachPuceron.Add(objPuceron);
+
+        canMove = true;
+        
+        
     }
 
-    void TranslatePuceron(int radiusCircle)
+    void TranslatePuceron()
     {
-        
-        foreach (GameObject obj in eachPuceron)
+        canMove =false;
+        if (eachPuceron.Count > 0)
         {
-            Vector3 posInCircle = Random.insideUnitSphere;
+                for (int i = 0; i < eachPuceron.Count; i++)
+             {
             
-            obj.transform.Translate( new Vector3 (posInCircle.x, posInCircle.y,this.transform.position.z) * radiusCircle);
+            // On récupère un point aléatoirement dans un cercle
+            Vector2 posCircle = Random.insideUnitCircle.normalized *10;
+            
+            Vector3 Destination_puceron = this.transform.position + new Vector3(posCircle.x , posCircle.y , 1);
+            
+            eachPuceron[i].transform.position = new Vector3(eachPuceron[i].transform.position.x, eachPuceron[i].transform.position.y, 1);
+            
+            // On attribue la destination de chaque navmesh
+            eachPuceron[i].GetComponent<NavMeshAgent>().SetDestination(Destination_puceron );
+            
+            //On patiente avant de relancer un mouvement 
+            StartCoroutine("Wait");
+            
+             }
 
-            obj.transform.rotation = Quaternion.LookRotation(Vector3.forward, posInCircle);
+
         }
 
+        else { return; }       
         
     }
 
     IEnumerator Wait()
     {
-        TranslatePuceron(5);
-        yield return new WaitForSeconds(5);
+        
+        yield return new WaitForSeconds(10);
         Debug.Log("recall");
+        canMove = true;
     }
+
+    void UpdateAnimation()
+    {
+        
+    }
+
+
 }
 

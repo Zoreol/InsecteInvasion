@@ -30,11 +30,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        areaFirstMin = new Vector2(-220, 51);
+        areaFirstMin = new Vector2(-82, 90);
         areaFirstMax = new Vector2(60, 141);
-        areaTwoMin = new Vector2(80, -150);
+        areaTwoMin = new Vector2(126, -90);
         areaTwoMax = new Vector2(270,24);
-        areaThreeMin = new Vector2(-43,-253);
+        areaThreeMin = new Vector2(30,-212);
         areaThreeMax = new Vector2(183, -198);
 
         // On stock les position dans un tableau 
