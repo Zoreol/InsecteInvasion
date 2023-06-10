@@ -11,6 +11,7 @@ public class Selection : MonoBehaviour
     public List<Unit_Identification> _selected_Unit_List;
     public List<Ennemi_Identification> _selected_ennemi_List;
     public List<Ennemi_Identification> _last_ennemi = null;
+    public List<Batiments_Identification> _selected_batiment;
     public Vector3 moveToPosition;
     public Vector3 moveToPositionsafe;
 
@@ -21,6 +22,7 @@ public class Selection : MonoBehaviour
         tutoriel = FindObjectOfType<Tutoriel>();
         _selected_Unit_List = new List<Unit_Identification>();
         _selected_ennemi_List = new List<Ennemi_Identification>();
+        _selected_batiment = new List<Batiments_Identification>();
         _selection_Area_Transform.gameObject.SetActive(false);
     }
     void Update()
@@ -99,6 +101,9 @@ public class Selection : MonoBehaviour
                 ennemi_Identification.SetSelectedVisible(false);
             }
             _selected_ennemi_List.Clear();
+
+            //efface list batiment
+            _selected_batiment.Clear();
             //Select units within selection area
             foreach (Collider2D collider2D in collider2DArray)
             {
@@ -132,7 +137,7 @@ public class Selection : MonoBehaviour
             }*/
             _mouse_Position.GetMouseWorldPosition();
             _endPosition = _mouse_Position.worldPosition;
-            if (_selected_ennemi_List.Count == 0)
+            if (_selected_ennemi_List.Count == 0 && _selected_batiment.Count == 0)
             {
                 moveToPosition = _mouse_Position.worldPosition;
             }
@@ -148,6 +153,26 @@ public class Selection : MonoBehaviour
                 }
                 
             }
+            else if (_selected_batiment.Count > 0)
+            {
+                moveToPosition = _selected_batiment[0].positiion_commerce.position;
+                Debug.Log("MAgasin");
+            }
+            Debug.Log("MAgasin");
+
+            Collider2D[] collider2DArrayBatiment = Physics2D.OverlapAreaAll(_startPosition, _endPosition);
+
+            _selected_batiment.Clear();
+            foreach (Collider2D collider2D in collider2DArrayBatiment)
+            {
+                Batiments_Identification batiments_Identification = collider2D.GetComponent<Batiments_Identification>();
+                if (batiments_Identification != null)
+                {
+                    _selected_batiment.Add(batiments_Identification);
+                }
+            }
+
+
             Collider2D[] collider2DArrayEnnemi = Physics2D.OverlapAreaAll(_startPosition, _endPosition);
             foreach (Ennemi_Identification ennemi_Identification in _selected_ennemi_List)
             {

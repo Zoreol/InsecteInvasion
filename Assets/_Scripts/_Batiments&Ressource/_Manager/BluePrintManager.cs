@@ -23,8 +23,8 @@ public class BluePrintManager : MonoBehaviour
     {
         if (blueprintGO)
         {
-            SetMaterial();
-            CursorControlls();
+            //SetMaterial();
+            //CursorControlls();
         }
     }
 }
