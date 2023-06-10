@@ -41,6 +41,7 @@ public class Unit_UI : MonoBehaviour
 
     void SuppVisuel()
     {
+        // On récupère le bouton qui vient d'être appuyé pour récupérer son parent et le supprimer
         GameObject buttonSelected = EventSystem.current.currentSelectedGameObject;
         Debug.Log(buttonSelected.transform.parent.ToString());
         Destroy(buttonSelected.transform.parent.gameObject);
