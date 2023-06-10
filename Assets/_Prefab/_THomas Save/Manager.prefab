@@ -67,6 +67,9 @@ MonoBehaviour:
   _last_ennemi: []
   moveToPosition: {x: 0, y: 0, z: 0}
   moveToPositionsafe: {x: 0, y: 0, z: 0}
+  firstSelection: 0
+  firstdeplacement: 0
+  firstattack: 0
 --- !u!114 &4261125044483353213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,3 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  speed: 0
+  zoomspeed: 0
+  tutoManager: {fileID: 0}
+  firsscroll: 0

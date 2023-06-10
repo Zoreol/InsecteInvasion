@@ -31,6 +31,9 @@ public class UnityManager : MonoBehaviour
         //deplacement
         ForDeplacement();
         //si je suis en formation j'attack
+
+        //ForDeplacement();
+
         if (InFormation)
         {
             animUnit.SetTrigger("Attack");

@@ -15,7 +15,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     public int maxUnit = 15;
     public bool selectionOn = false;
 
-    public bool firstUnitPlace;
+    
     private void Start()
     {
     }
@@ -25,12 +25,12 @@ public class Ville_Mante_Religieuse : MonoBehaviour
         TimeBeforeUnitCreation();
     }
 
-    public void AffichageVilleInterface()
+    /*public void AffichageVilleInterface()
     {
         _villeInterface.SetActive(true);
         _villeBouton.SetActive(false);
         selectionOn = true;
-    }
+    }*/
     public void SpawnUnitBase()
     {
         if((Unit_number.number_unit + _unitNumberCreating) < maxUnit)
@@ -50,11 +50,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
         if(_unitNumberCreating > 0)
         {
             _creationUnit = true;
-            if (FindObjectOfType<Camera_Mouvement>().firsscroll && !firstUnitPlace)
-            {
-                firstUnitPlace = true;
-                FindObjectOfType<Camera_Mouvement>().tutoManager.textTuto.text = FindObjectOfType<Camera_Mouvement>().tutoManager.tutoPanel[3].textEtapeTuto;
-            }
+            
         }else _creationUnit = false;
     }
     private void TimeBeforeUnitCreation()
