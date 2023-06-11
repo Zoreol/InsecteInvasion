@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BossAraignée : MonoBehaviour
 {
@@ -160,7 +159,6 @@ public class BossAraignée : MonoBehaviour
         float timeAnimDeadBoss = 7f;
         yield return new WaitForSeconds(timeAnimDeadBoss);
 
-        SceneManager.LoadScene("Fin");
         Destroy(this.gameObject);
     }
     
