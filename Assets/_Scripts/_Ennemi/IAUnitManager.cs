@@ -31,7 +31,6 @@ public class IAUnitManager : UnityManager
     {
         //cherche moi ma capacité de deplacement
         bndFloor = floor.GetComponent<SpriteRenderer>().bounds;
-        //IAUnitManager_List.Clear();
         StartCoroutine(SetRandomDestination());
     }
     public void Attack()
@@ -45,11 +44,9 @@ public class IAUnitManager : UnityManager
         else
         {
             animUnit.SetTrigger("DistanceLong");
-            GameObject SilkTargetPlayer = Instantiate(Silk,transform);
+            GameObject SilkTargetPlayer = Instantiate(Silk, transform.position, Quaternion.identity);
             SilkTargetPlayer.GetComponent<SilkManager>().positionCible = playerUnit[0].transform.position;
-            /*
-            playerUnit[0].GetComponent<UnityManager>().life -= 1f;
-            playerUnit[0].GetComponent<UnityManager>().StartCoroutine(InStun());*/
+
         }
          
     }

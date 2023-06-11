@@ -1,37 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossAraignée : MonoBehaviour
 {
+
+    [SerializeField] public float life;
+    [SerializeField] public float maxLife;
     [SerializeField] int Cooldown;
     [SerializeField] List<GameObject> unitMantisList;
     [SerializeField] bool wantAttack;
     [SerializeField] bool wantAttackBase;
     [SerializeField] bool wantAttackAway;
+    [SerializeField] GameObject silk;
+    [SerializeField] Animator animator;
+    [SerializeField] public List<Animator> pawAnimator;
 
-    private bool inAttack;
     private bool canRandom = true;
     int randomAttack;
+    bool nullPaw;
+
+    private void Start()
+    {
+        life = maxLife;
+        for (int i = 0; i < pawAnimator.Count; i++)
+        {
+            pawAnimator[i].GetComponent<LifeForDestruction>().baseSpider = this;
+        }
+    }
     private void Update()
     {
-        if (canRandom)
+        if (canRandom && !nullPaw)
         {
             canRandom = false;
             StartCoroutine(CooldownAttack());
-        }/*
-        if (wantAttack)
-        {
-            ZoneAttackBack();
         }
-        if (wantAttackBase)
-        {
-            StartCoroutine(AttackBase());
-        }
-        if (wantAttackAway)
-        {
-            StartCoroutine(AttackAway());
-        }*/
     }
 
     IEnumerator CooldownAttack()
@@ -39,68 +43,39 @@ public class BossAraignée : MonoBehaviour
 
         yield return new WaitForSeconds(Cooldown);
 
-        randomAttack = Random.Range(0, 3);
-        if (randomAttack == 0)
+        randomAttack = Random.Range(0, 20);
+        print(randomAttack);
+        if (randomAttack <= 14)
         {
-            StartCoroutine(AttackBase());
+            AttackAway();
         }
-        if (randomAttack == 1)
-        {
-            StartCoroutine(AttackAway());
-        }
-        if (randomAttack == 2)
+        else
         {
             ZoneAttackBack();
         }
     }
-    IEnumerator AttackBase()
-    {
-        if (!inAttack)
-        {
-            
-            for (int i = 0; i < unitMantisList.Count; i++)
-            {
-                if (Vector2.Distance(this.gameObject.transform.position, unitMantisList[i].transform.position) <= 3.5f && !inAttack)
-                {
-                    
-
-                    yield return new WaitForSeconds(3f);
-
-                    inAttack = true;
-                    unitMantisList[i].GetComponent<UnityManager>().life -= 2f;
-
-                }
-                
-            }
-            inAttack = false;
-            canRandom = true;
-        }
+    
         
-    }
-    IEnumerator AttackAway()
+    void AttackAway()
     {
-        if (!inAttack)
-        {
+        animator.SetTrigger("DistanceAttack");
 
             for (int i = 0; i < unitMantisList.Count; i++)
             {
-                if (!inAttack)
-                {
-                    
-                    yield return new WaitForSeconds(3f);
-
-                    inAttack = true;
-                    unitMantisList[i].GetComponent<UnityManager>().life -= 1f;
-                }
-
+                GameObject SilkTargetPlayer = Instantiate(silk, transform.position, Quaternion.identity);
+                SilkTargetPlayer.GetComponent<SilkManager>().positionCible = unitMantisList[0].transform.position;
+                SilkTargetPlayer.transform.localScale = new Vector2(SilkTargetPlayer.transform.localScale.x * 4, SilkTargetPlayer.transform.localScale.y * 4);
             }
-            inAttack = false;
-            canRandom = true;
-        }
+            
+        canRandom = true;
 
     }
     void ZoneAttackBack()
     {
+        for (int y = 0; y < pawAnimator.Count; y++)
+        {
+            pawAnimator[y].SetTrigger("PawAttack");
+        }
         for (int i = 0; i < unitMantisList.Count; i++)
         {
             //paramettre position du boss et des manthes
@@ -114,7 +89,9 @@ public class BossAraignée : MonoBehaviour
 
             // Déplace l'objet dans la direction de la cible
             unitMantisList[i].transform.Translate(movement/2, Space.World);
+            unitMantisList[i].GetComponent<UnityManager>().life -= 1f;
         }
+
         canRandom = true;
     }
 
@@ -123,6 +100,14 @@ public class BossAraignée : MonoBehaviour
         if (collision.CompareTag("Mantis"))
         {
             unitMantisList.Add(collision.gameObject);
+            
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Mantis"))
+        {
+            Hitdamage(collision);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -130,12 +115,41 @@ public class BossAraignée : MonoBehaviour
         if (collision.CompareTag("Mantis"))
         {
             unitMantisList.Remove(collision.gameObject);
-            if (unitMantisList.Count == 0)
+        }
+    }
+    public void VerifPaw()
+    {
+        if (pawAnimator.Count == 0)
+        {
+            nullPaw = true;
+        }
+    }
+    void Hitdamage(Collider2D collision)
+    {
+        if (collision.GetComponent<UnityManager>().attackingEnnemi && nullPaw)
+        {
+            if (life>= 0)
             {
-                Debug.Log("je rentre");
-                Destroy(this.gameObject);
+                life--;
+                if (life <= 0)
+                {
+                    StartCoroutine(DestroyBoss());
+                }
+                animator.SetTrigger("Hit");
             }
         }
+    }
+
+    IEnumerator DestroyBoss()
+    {
+        animator.SetTrigger("Dead");
+        this.GetComponent<BoxCollider2D>().enabled = false;
+
+        float timeAnimDeadBoss = 7f;
+        yield return new WaitForSeconds(timeAnimDeadBoss);
+
+        SceneManager.LoadScene("Fin");
+        Destroy(this.gameObject);
     }
     
 }

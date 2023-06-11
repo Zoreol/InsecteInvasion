@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FogOfWar : MonoBehaviour
 {
+    //FogOfWar utilisant les sprite et les Masks
     public Texture2D fogOfWarTexture;
     public SpriteMask spriteMask;
 
@@ -12,6 +13,7 @@ public class FogOfWar : MonoBehaviour
 
     public void Awake()
     {
+        //Paramettre FogOfWar
         pixelScale.x = fogOfWarTexture.width;
         pixelScale.y = fogOfWarTexture.height;
         worldScale.x = pixelScale.x / 100f * transform.localScale.x;
@@ -40,6 +42,7 @@ public class FogOfWar : MonoBehaviour
 
     public void MakeHole(Vector2 position, float holeRadius)
     {
+        //Quand un batiment ou une unité se balade, il appelle cette fonction qui permet de dévoiler la carte
         Vector2Int pixelPosition = WorldToPixel(position);
         int radius = Mathf.RoundToInt(holeRadius * pixelScale.x / worldScale.x);
         int px, nx, py, ny, distance;
