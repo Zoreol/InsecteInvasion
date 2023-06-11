@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 49257832}
   - component: {fileID: 49257834}
   - component: {fileID: 49257833}
+  - component: {fileID: 49257835}
+  - component: {fileID: 49257836}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -203,6 +205,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49257831}
   m_CullTransparentMesh: 1
+--- !u!114 &49257835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49257831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fc12c7c787e1d45afb82e016474487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu_to_open: {fileID: 0}
+--- !u!114 &49257836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49257831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b623ba86c9e3d114eb0eb49c125d1e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDialogue: {fileID: 1423943521}
+  cameraQueen:
+  - {fileID: 949896106}
+  - {fileID: 252167555}
+  buttonCam: {fileID: 1259508579}
+  timeBetwwennLetter: 0.1
+  animatorQueen: {fileID: 1702281723}
+  buttonVisual:
+  - {fileID: 21300000, guid: e09314947daa59e47b3a9b8f4722236b, type: 3}
+  - {fileID: 21300000, guid: f8ed815095953f8498fe88dbd1515ecb, type: 3}
+  - {fileID: 21300000, guid: e204ea6aff8d5cf49bd409434dab6e40, type: 3}
+  - {fileID: 21300000, guid: 1e98610b62cbd2a4a8e0d06c6d2060c2, type: 3}
+  time: 0
 --- !u!1 &252167555
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &252167556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -914,7 +954,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1232487387}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 49257835}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: BackToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1232487387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,7 +1087,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1259508579}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 49257836}
+        m_TargetAssemblyTypeName: Menu_end, Assembly-CSharp
+        m_MethodName: ButtonShowWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1259508579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,6 +1478,7 @@ GameObject:
   - component: {fileID: 1702281720}
   - component: {fileID: 1702281722}
   - component: {fileID: 1702281721}
+  - component: {fileID: 1702281723}
   m_Layer: 5
   m_Name: Queen_image
   m_TagString: Untagged
@@ -1479,6 +1544,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702281719}
   m_CullTransparentMesh: 1
+--- !u!95 &1702281723
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702281719}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2c9ee0d866cfa044b8a19e19fa09ec3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1733123756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1854,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2074728317}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 49257836}
+        m_TargetAssemblyTypeName: Menu_end, Assembly-CSharp
+        m_MethodName: ButtonHideText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2074728317
 MonoBehaviour:
   m_ObjectHideFlags: 0
