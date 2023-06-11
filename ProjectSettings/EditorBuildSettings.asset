@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Map_Crusader.unity
     guid: 868b2a438f22a2843a9fde07dd020209
+  - enabled: 1
+    path: Assets/_Scenes/Fin.unity
+    guid: 90ff63adce57beb48b6f7e2849255379
   m_configObjects: {}
