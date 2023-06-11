@@ -8,9 +8,11 @@ public class Target_Keep : MonoBehaviour
     public Selection select;
     public Unit_Identification unit_identification;
     public GameObject _ennemi_to_keep;
+    public GameObject _buiding_keep;
     [SerializeField] private Commune_Caracteristique_Mantis ccm;
     [SerializeField] private float _timer_attack;
     [SerializeField] private Animator anim;
+    [SerializeField] private bool _base_Mante = true;
     private void Awake()
     {
         select = FindObjectOfType<Selection>();
@@ -19,7 +21,8 @@ public class Target_Keep : MonoBehaviour
     {
         
         KeepEnnemi();
-        if(_timer_attack > 0)
+        Batiment_Facing();
+        if (_timer_attack > 0)
         {
             _timer_attack -= Time.deltaTime;
         }
@@ -57,6 +60,25 @@ public class Target_Keep : MonoBehaviour
             anim.SetBool("Attack", false);
             return; 
         }
+        if (collision.tag == "Batiment" && _buiding_keep != null && _base_Mante == true)
+        {
+            if(_buiding_keep.GetComponent<Batiments_Identification>().batiment_numero[0] == true)
+            {
+                //devient recolteuse
+                _base_Mante = false;
+            }
+            if (_buiding_keep.GetComponent<Batiments_Identification>().batiment_numero[1] == true)
+            {
+                //devient gendarme
+                _base_Mante = false;
+            }
+            if (_buiding_keep.GetComponent<Batiments_Identification>().batiment_numero[2] == true)
+            {
+                //devient bolas
+                _base_Mante = false;
+            }
+
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -70,6 +92,23 @@ public class Target_Keep : MonoBehaviour
         {
             anim.SetBool("Attack", false);
             return;
+        }
+    }
+
+    void Batiment_Facing()
+    {
+        if (select._selected_batiment != null)
+        {
+            if (select._selected_batiment.Count > 0 && unit_identification.is_selected)
+            {
+                _buiding_keep = select._selected_batiment[0].gameObject;
+
+            }
+
+        }
+        if (Input.GetMouseButtonDown(1) && select._selected_batiment != null)
+        {
+            _buiding_keep = null;
         }
     }
 }

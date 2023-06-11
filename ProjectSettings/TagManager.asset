@@ -12,6 +12,8 @@ TagManager:
   - Spider
   - Gendarme_Terrain
   - Araigne_Terrain
+  - Recolteuse
+  - Gendarme_Mante
   layers:
   - Default
   - TransparentFX

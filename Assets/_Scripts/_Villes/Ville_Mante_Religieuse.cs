@@ -15,9 +15,14 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     public int maxUnit = 15;
     public bool selectionOn = false;
 
+    private Tutoriel tutoriel;
+
+    private int _fiveUnitTuto = 0;
+
     
     private void Start()
     {
+        tutoriel = FindObjectOfType<Tutoriel>();
     }
     private void Update()
     {
@@ -66,6 +71,22 @@ public class Ville_Mante_Religieuse : MonoBehaviour
             Instantiate(_mantes[0], _SpawnMante.transform);
             // info spawn unité
             //
+            if (!tutoriel._unitCreation)
+            {
+                tutoriel._unitCreation = true;
+            }
+            if (tutoriel._recolterPucerons)
+            {
+                _fiveUnitTuto++;
+                if(_fiveUnitTuto >= 5)
+                {
+                    _fiveUnitTuto = 5;
+                }
+            }
+            if(!tutoriel._createFiveUnit && _fiveUnitTuto >= 5)
+            {
+                tutoriel._createFiveUnit = true;
+            }
             timerSpawnBaseUnit = 10;
         }
     }

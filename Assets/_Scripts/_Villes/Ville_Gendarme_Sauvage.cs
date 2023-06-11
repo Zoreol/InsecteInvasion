@@ -15,10 +15,11 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
     private float _timeSpawn = 30;
     private int _maxUnit = 10;
     private bool _siege = false;
-
+    private Tutoriel tutoriel;
     
     private void Awake()
     {
+        tutoriel = FindObjectOfType<Tutoriel>();
         vg.selectionOn = true;
     }
 
@@ -37,6 +38,10 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
                 vg.enabled = true;
                 vg.selectionOn = false;
                 //ville capturer
+                if (!tutoriel._gendarmeTownCapture)
+                {
+                    tutoriel._gendarmeTownCapture = true;
+                }
                 
                 vgs.enabled = false;
             }
