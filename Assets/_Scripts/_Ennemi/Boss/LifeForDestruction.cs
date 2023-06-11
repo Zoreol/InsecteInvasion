@@ -10,6 +10,7 @@ public class LifeForDestruction : MonoBehaviour
     [SerializeField] float life;
     private void OnTriggerStay2D(Collider2D collision)
     {
+        //on capte ce qui nous interesse
         if (collision.CompareTag("Mantis"))
         {
              Hitdamage(collision);
@@ -17,16 +18,21 @@ public class LifeForDestruction : MonoBehaviour
     }
     void Hitdamage(Collider2D collision)
     {
+        //on voit si il attaque
         if (collision.GetComponent<UnityManager>().attackingEnnemi)
         {
             if (life >= 0)
             {
                 life--;
+                //verification si la patte n'est pas mourte
                 if (life <= 0)
                 {
+                    //tu me retire de la liste la patte qui va mourrir
                     baseSpider.pawAnimator.Remove(animator);
+                    //je regarde si toute mais pattes sont perdu si c'est le cas tu peut attaquer le corps
                     baseSpider.VerifPaw();
-                    StartCoroutine(DestroyBoss());
+                    //Supprime ma patte
+                    StartCoroutine(DestroyPaw());
                 }
                     animator.SetTrigger("Hit");
                 
@@ -34,7 +40,7 @@ public class LifeForDestruction : MonoBehaviour
         }
     }
 
-    IEnumerator DestroyBoss()
+    IEnumerator DestroyPaw()
     {
         animator.SetTrigger("Dead");
 
