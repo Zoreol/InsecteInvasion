@@ -9,6 +9,8 @@ public class BossAraignée : MonoBehaviour
     [SerializeField] bool wantAttack;
     [SerializeField] bool wantAttackBase;
     [SerializeField] bool wantAttackAway;
+    [SerializeField] Animator animator;
+    [SerializeField] List<Animator> pawAnimator;
 
     private bool inAttack;
     private bool canRandom = true;
@@ -19,19 +21,7 @@ public class BossAraignée : MonoBehaviour
         {
             canRandom = false;
             StartCoroutine(CooldownAttack());
-        }/*
-        if (wantAttack)
-        {
-            ZoneAttackBack();
         }
-        if (wantAttackBase)
-        {
-            StartCoroutine(AttackBase());
-        }
-        if (wantAttackAway)
-        {
-            StartCoroutine(AttackAway());
-        }*/
     }
 
     IEnumerator CooldownAttack()
@@ -39,70 +29,44 @@ public class BossAraignée : MonoBehaviour
 
         yield return new WaitForSeconds(Cooldown);
 
-        randomAttack = Random.Range(0, 3);
-        if (randomAttack == 0)
-        {
-            StartCoroutine(AttackBase());
-        }
+        randomAttack = Random.Range(1, 3);
+        
         if (randomAttack == 1)
         {
-            StartCoroutine(AttackAway());
+            print("j'attaque a distance");
+            AttackAway();
         }
         if (randomAttack == 2)
         {
+            print("j'éloigne mes ennemies");
             ZoneAttackBack();
         }
     }
-    IEnumerator AttackBase()
-    {
-        if (!inAttack)
-        {
-            
-            for (int i = 0; i < unitMantisList.Count; i++)
-            {
-                if (Vector2.Distance(this.gameObject.transform.position, unitMantisList[i].transform.position) <= 3.5f && !inAttack)
-                {
-                    
-
-                    yield return new WaitForSeconds(3f);
-
-                    inAttack = true;
-                    unitMantisList[i].GetComponent<UnityManager>().life -= 2f;
-
-                }
-                
-            }
-            inAttack = false;
-            canRandom = true;
-        }
+    
         
-    }
-    IEnumerator AttackAway()
+    void AttackAway()
     {
-        if (!inAttack)
-        {
+        animator.SetTrigger("DistanceAttack");
 
             for (int i = 0; i < unitMantisList.Count; i++)
             {
-                if (!inAttack)
-                {
-                    
-                    yield return new WaitForSeconds(3f);
-
-                    inAttack = true;
                     unitMantisList[i].GetComponent<UnityManager>().life -= 1f;
-                }
+                
 
             }
-            inAttack = false;
-            canRandom = true;
-        }
+            
+        canRandom = true;
 
     }
     void ZoneAttackBack()
     {
+        for (int y = 0; y < pawAnimator.Count; y++)
+        {
+            pawAnimator[y].SetTrigger("PawAttack");
+        }
         for (int i = 0; i < unitMantisList.Count; i++)
         {
+            
             //paramettre position du boss et des manthes
             Vector2 unitMantis = new Vector2(unitMantisList[i].transform.position.x, unitMantisList[i].transform.position.y);
             Vector2 unitBoss = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
@@ -114,7 +78,10 @@ public class BossAraignée : MonoBehaviour
 
             // Déplace l'objet dans la direction de la cible
             unitMantisList[i].transform.Translate(movement/2, Space.World);
+            unitMantisList[i].GetComponent<UnityManager>().life -= 1f;
         }
+
+        inAttack = false;
         canRandom = true;
     }
 
@@ -132,7 +99,6 @@ public class BossAraignée : MonoBehaviour
             unitMantisList.Remove(collision.gameObject);
             if (unitMantisList.Count == 0)
             {
-                Debug.Log("je rentre");
                 Destroy(this.gameObject);
             }
         }
