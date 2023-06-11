@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class BossAraignée : MonoBehaviour
 {
+
+    [SerializeField] public float life;
+    [SerializeField] public float maxLife;
     [SerializeField] int Cooldown;
     [SerializeField] List<GameObject> unitMantisList;
     [SerializeField] bool wantAttack;
     [SerializeField] bool wantAttackBase;
     [SerializeField] bool wantAttackAway;
+    [SerializeField] GameObject silk;
     [SerializeField] Animator animator;
-    [SerializeField] List<Animator> pawAnimator;
+    [SerializeField] public List<Animator> pawAnimator;
 
     private bool inAttack;
     private bool canRandom = true;
     int randomAttack;
+    bool nullPaw;
+
+    private void Start()
+    {
+        life = maxLife;
+        for (int i = 0; i < pawAnimator.Count; i++)
+        {
+            pawAnimator[i].GetComponent<LifeForDestruction>().baseSpider = this;
+        }
+    }
     private void Update()
     {
-        if (canRandom)
+        if (canRandom && !nullPaw)
         {
             canRandom = false;
             StartCoroutine(CooldownAttack());
@@ -29,16 +43,14 @@ public class BossAraignée : MonoBehaviour
 
         yield return new WaitForSeconds(Cooldown);
 
-        randomAttack = Random.Range(1, 3);
-        
-        if (randomAttack == 1)
+        randomAttack = Random.Range(0, 20);
+        print(randomAttack);
+        if (randomAttack <= 14)
         {
-            print("j'attaque a distance");
             AttackAway();
         }
-        if (randomAttack == 2)
+        else
         {
-            print("j'éloigne mes ennemies");
             ZoneAttackBack();
         }
     }
@@ -50,9 +62,9 @@ public class BossAraignée : MonoBehaviour
 
             for (int i = 0; i < unitMantisList.Count; i++)
             {
-                    unitMantisList[i].GetComponent<UnityManager>().life -= 1f;
-                
-
+                GameObject SilkTargetPlayer = Instantiate(silk, transform.position, Quaternion.identity);
+                SilkTargetPlayer.GetComponent<SilkManager>().positionCible = unitMantisList[0].transform.position;
+                SilkTargetPlayer.transform.localScale = new Vector2(SilkTargetPlayer.transform.localScale.x * 4, SilkTargetPlayer.transform.localScale.y * 4);
             }
             
         canRandom = true;
@@ -66,7 +78,6 @@ public class BossAraignée : MonoBehaviour
         }
         for (int i = 0; i < unitMantisList.Count; i++)
         {
-            
             //paramettre position du boss et des manthes
             Vector2 unitMantis = new Vector2(unitMantisList[i].transform.position.x, unitMantisList[i].transform.position.y);
             Vector2 unitBoss = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
@@ -90,6 +101,14 @@ public class BossAraignée : MonoBehaviour
         if (collision.CompareTag("Mantis"))
         {
             unitMantisList.Add(collision.gameObject);
+            
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Mantis"))
+        {
+            Hitdamage(collision);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -97,11 +116,40 @@ public class BossAraignée : MonoBehaviour
         if (collision.CompareTag("Mantis"))
         {
             unitMantisList.Remove(collision.gameObject);
-            if (unitMantisList.Count == 0)
+        }
+    }
+    public void VerifPaw()
+    {
+        if (pawAnimator.Count == 0)
+        {
+            nullPaw = true;
+        }
+    }
+    void Hitdamage(Collider2D collision)
+    {
+        if (collision.GetComponent<UnityManager>().attackingEnnemi && nullPaw)
+        {
+            if (life>= 0)
             {
-                Destroy(this.gameObject);
+                life--;
+                if (life <= 0)
+                {
+                    StartCoroutine(DestroyBoss());
+                }
+                animator.SetTrigger("Hit");
             }
         }
+    }
+
+    IEnumerator DestroyBoss()
+    {
+        animator.SetTrigger("Dead");
+        this.GetComponent<BoxCollider2D>().enabled = false;
+
+        float timeAnimDeadBoss = 20f;
+        yield return new WaitForSeconds(timeAnimDeadBoss);
+
+        Destroy(this.gameObject);
     }
     
 }

@@ -45,7 +45,7 @@ public class IAUnitManager : UnityManager
         else
         {
             animUnit.SetTrigger("DistanceLong");
-            GameObject SilkTargetPlayer = Instantiate(Silk,transform);
+            GameObject SilkTargetPlayer = Instantiate(Silk, transform.position, Quaternion.identity);
             SilkTargetPlayer.GetComponent<SilkManager>().positionCible = playerUnit[0].transform.position;
             /*
             playerUnit[0].GetComponent<UnityManager>().life -= 1f;

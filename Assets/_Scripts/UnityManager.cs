@@ -108,7 +108,8 @@ public class UnityManager : MonoBehaviour
         attack = 0;
         inAttack = false;
 
-        yield return new WaitForSeconds(3f);
+        float timeStun = 3f;
+        yield return new WaitForSeconds(timeStun);
 
         speed = speedbase;
         attack = attackbase;
