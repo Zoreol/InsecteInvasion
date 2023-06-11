@@ -147,7 +147,7 @@ public class BossAraignée : MonoBehaviour
         animator.SetTrigger("Dead");
         this.GetComponent<BoxCollider2D>().enabled = false;
 
-        float timeAnimDeadBoss = 20f;
+        float timeAnimDeadBoss = 7f;
         yield return new WaitForSeconds(timeAnimDeadBoss);
 
         SceneManager.LoadScene("Fin");

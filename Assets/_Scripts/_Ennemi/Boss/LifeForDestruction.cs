@@ -40,7 +40,7 @@ public class LifeForDestruction : MonoBehaviour
 
         this.GetComponent<BoxCollider2D>().enabled = false;
 
-        float timeAnimDeadBoss = 2f;
+        float timeAnimDeadBoss = 5f;
         yield return new WaitForSeconds(timeAnimDeadBoss);
 
         Destroy(this.gameObject);
