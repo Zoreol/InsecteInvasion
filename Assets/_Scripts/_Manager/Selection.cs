@@ -16,11 +16,11 @@ public class Selection : MonoBehaviour
     public Vector3 moveToPosition;
     public Vector3 moveToPositionsafe;
 
-    private Tutoriel tutoriel;
+    //private Tutoriel tutoriel;
 
     private void Awake()
     {
-        tutoriel = FindObjectOfType<Tutoriel>();
+        //tutoriel = FindObjectOfType<Tutoriel>();
         _selected_Unit_List = new List<Unit_Identification>();
         _selected_Unit_List_gameobject = new List<GameObject>();
         _selected_ennemi_List = new List<Ennemi_Identification>();
@@ -118,10 +118,10 @@ public class Selection : MonoBehaviour
                     _selected_Unit_List.Add(unit_Identification);
 
                     _selected_Unit_List_gameobject.Add(unit_Identification.gameObject);
-                    if (!tutoriel._selectUnit)
+                    /*if (!tutoriel._selectUnit)
                     {
                         tutoriel._selectUnit = true;
-                    }
+                    }*/
                     
                 }
             }
@@ -147,10 +147,10 @@ public class Selection : MonoBehaviour
                 if(_selected_ennemi_List[0].gameObject != null)
                 {
                     moveToPosition = _selected_ennemi_List[0].transform.position;
-                    if (!tutoriel._moveUnit)
+                    /*if (!tutoriel._moveUnit)
                     {
                         tutoriel._moveUnit = true;
-                    }
+                    }*/
                 }
                 
             }

@@ -56,7 +56,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
         {
             _creationUnit = true;
             
-        }else _creationUnit = false;
+        }else if(_unitNumberCreating<=0) _creationUnit = false;
     }
     private void TimeBeforeUnitCreation()
     {
@@ -71,7 +71,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
             Instantiate(_mantes[0], _SpawnMante.transform);
             // info spawn unité
             //
-            if (!tutoriel._unitCreation)
+            /*if (!tutoriel._unitCreation)
             {
                 tutoriel._unitCreation = true;
             }
@@ -86,7 +86,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
             if(!tutoriel._createFiveUnit && _fiveUnitTuto >= 5)
             {
                 tutoriel._createFiveUnit = true;
-            }
+            }*/
             timerSpawnBaseUnit = 10;
         }
     }
