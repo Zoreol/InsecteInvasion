@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class Menu : MonoBehaviour
 {
     public GameObject menu_to_open;
+
+    
+
+
     public void LoadGame()
     {
         SceneManager.LoadScene(1);
@@ -20,10 +27,28 @@ public class Menu : MonoBehaviour
     }
     public void OpenMenu()
     {
-        menu_to_open.SetActive(true);
+        if (!menu_to_open)
+        {
+            return;
+        }
+        else
+        {
+            menu_to_open.SetActive(true);
+        }
+        
     }
     public void CloseMenu()
     {
-        menu_to_open.SetActive(false);
+        if (!menu_to_open)
+        {
+            return;
+        }
+        else
+        {
+            menu_to_open.SetActive(false);
+        }
+        
     }
+
+   
 }
