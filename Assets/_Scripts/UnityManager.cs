@@ -6,24 +6,29 @@ public class UnityManager : MonoBehaviour
 {
     //base script Unit parametre
     [Header("Unit Settings")]
+    //l'animation
     public Animator animUnit;
+    //la vie
     [SerializeField] public float life;
     [SerializeField] public float maxLife;
+    //paramettre par defaut de comptetence
     [SerializeField] public float attack;
     [SerializeField] public float speed;
     [SerializeField] protected bool canAttack;
     [SerializeField] public bool inAttack;
     [SerializeField] public bool InFormation;
     [SerializeField] public bool PlayerTarget;
+    //permet d'aller d'un endroit a un autre
     public Vector2 positionCible;
+    //bool pour dire que j'attaque
     public bool attackingEnnemi;
-
+    //dire que je prend actuellement des degats et qu'il me faut un temps avant de me retoucher
     protected bool TakingDamage;
     [SerializeField] protected float rotationSpeed;
 
     private void Start()
     {
-        ///donne de la vie
+        //donne de la vie
         life = maxLife;
     }
     private void Update()

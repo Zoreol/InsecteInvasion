@@ -18,6 +18,8 @@ public class IAUnitManager : UnityManager
     private Vector2 moveto;
     private Bounds bndFloor;
     private float timePaused;
+
+    //je suis un arraignée donc je peux attaquer
     public bool spider;
 
     private void Awake()
@@ -35,18 +37,19 @@ public class IAUnitManager : UnityManager
     }
     public void Attack()
     {
-        //en fonction de la distance je met plus ou moins de degat
+        //en fonction de la distance j'attaque a distance ou de propre
         if (Vector2.Distance(this.gameObject.transform.position, playerUnit[0].transform.position) <= 2)
         {
+            //comme je suis court en distance je fais peut de degat
             animUnit.SetTrigger("DistanceCourt");
             playerUnit[0].GetComponent<UnityManager>().life-= 2f;
         }
         else
         {
+            //comme je suis loin j'envoie une toile d'arraignée
             animUnit.SetTrigger("DistanceLong");
             GameObject SilkTargetPlayer = Instantiate(Silk, transform.position, Quaternion.identity);
             SilkTargetPlayer.GetComponent<SilkManager>().positionCible = playerUnit[0].transform.position;
-
         }
          
     }
@@ -67,7 +70,7 @@ public class IAUnitManager : UnityManager
 
     void GroupPosition(GameObject target)
     {
-        //en fonction de ma liste tu creer une formation
+        //Tu me creer un formation des unités et tu les anvoie au point de raliment
         moveto = new Vector2(formationPoint.position.x, formationPoint.position.y);
         List<Vector2> targetPositionList = GetPositionListAround(moveto, 1f, 5);
         
@@ -84,6 +87,7 @@ public class IAUnitManager : UnityManager
             }
             
         }
+        //Par contre si il es tout seul pas besoin de faire la formation
         if (IAUnitManager_List.Count == 0 || IAUnitManager_List[0] == null)
         {
             InDeplacement(moveto);
@@ -92,6 +96,7 @@ public class IAUnitManager : UnityManager
 
     private List<Vector2> GetPositionListAround(Vector2 startPosition,float distance,int positionCount)
     {
+        //position de chaque unité (en mode formation) avec une distance entre chaque unité
         List<Vector2> positionList = new List<Vector2>();
         for (int i = 0; i < positionCount; i++)
         {
@@ -122,13 +127,13 @@ public class IAUnitManager : UnityManager
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
-    {
+    {   // j'ai mon unité manthe dans mon champ de vision
         if (collision.CompareTag("Mantis"))
         {
             PlayerTarget = true;
             TargetPlayer(collision);
 
-            
+            //je tourne en fonction de l'unité manthes
             if (InFormation && PlayerTarget)
             {
                 Vector2 direction = playerUnit[0].transform.position - transform.position;
@@ -140,7 +145,8 @@ public class IAUnitManager : UnityManager
     }
 
     private void OnTriggerExit2D(Collider2D collision)
-    {
+    { 
+        //enlever l'unité de ma liste si je la vois plus
         for (int i = 0; i < IAUnitManager_List.Count; i++)
         {
             if (IAUnitManager_List[i] == null)
@@ -165,7 +171,7 @@ public class IAUnitManager : UnityManager
     void TargetPlayer(Collider2D collision)
     {
         if (!PlayerTarget) return;
-
+        //si j'ai la possibilité d'attaquer 
         if (PlayerTarget && spider)
         {
             canAttack = true;
@@ -175,7 +181,6 @@ public class IAUnitManager : UnityManager
         animUnit.SetBool("inFormation", true);
         if (PlayerTarget && InFormation)
         {
-
             animUnit.SetBool("Marche", false);
         }
 

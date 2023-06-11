@@ -23,7 +23,9 @@ public class BossAraignée : MonoBehaviour
 
     private void Start()
     {
+        //on met de la vie
         life = maxLife;
+        //on reference le corps dans les pattes pour qu'il puissent me dire quand il faut retirer de la liste de pates
         for (int i = 0; i < pawAnimator.Count; i++)
         {
             pawAnimator[i].GetComponent<LifeForDestruction>().baseSpider = this;
@@ -31,6 +33,7 @@ public class BossAraignée : MonoBehaviour
     }
     private void Update()
     {
+        //regarde si il peut attaquer a un moment
         if (canRandom && !nullPaw)
         {
             canRandom = false;
@@ -40,7 +43,7 @@ public class BossAraignée : MonoBehaviour
 
     IEnumerator CooldownAttack()
     {
-
+        //attend avant d'attaquer
         yield return new WaitForSeconds(Cooldown);
 
         randomAttack = Random.Range(0, 20);
@@ -58,10 +61,12 @@ public class BossAraignée : MonoBehaviour
         
     void AttackAway()
     {
+        //j'attaque a disctance
         animator.SetTrigger("DistanceAttack");
 
             for (int i = 0; i < unitMantisList.Count; i++)
             {
+            //creer une toile
                 GameObject SilkTargetPlayer = Instantiate(silk, transform.position, Quaternion.identity);
                 SilkTargetPlayer.GetComponent<SilkManager>().positionCible = unitMantisList[0].transform.position;
                 SilkTargetPlayer.transform.localScale = new Vector2(SilkTargetPlayer.transform.localScale.x * 4, SilkTargetPlayer.transform.localScale.y * 4);
@@ -95,8 +100,10 @@ public class BossAraignée : MonoBehaviour
         canRandom = true;
     }
 
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //on ajoute dans la liste les unité joueur
         if (collision.CompareTag("Mantis"))
         {
             unitMantisList.Add(collision.gameObject);
@@ -105,6 +112,7 @@ public class BossAraignée : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        //on check si il est toujours dans la voision
         if (collision.CompareTag("Mantis"))
         {
             Hitdamage(collision);
@@ -112,6 +120,7 @@ public class BossAraignée : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //j'enleve car il es plus dans ma vision
         if (collision.CompareTag("Mantis"))
         {
             unitMantisList.Remove(collision.gameObject);
@@ -119,6 +128,7 @@ public class BossAraignée : MonoBehaviour
     }
     public void VerifPaw()
     {
+        //me permet de dire que je n'ai plus de pattes
         if (pawAnimator.Count == 0)
         {
             nullPaw = true;
@@ -126,6 +136,7 @@ public class BossAraignée : MonoBehaviour
     }
     void Hitdamage(Collider2D collision)
     {
+        //je me fait toucher par un unité joueur
         if (collision.GetComponent<UnityManager>().attackingEnnemi && nullPaw)
         {
             if (life>= 0)
@@ -140,6 +151,7 @@ public class BossAraignée : MonoBehaviour
         }
     }
 
+    //je vais mourir
     IEnumerator DestroyBoss()
     {
         animator.SetTrigger("Dead");
