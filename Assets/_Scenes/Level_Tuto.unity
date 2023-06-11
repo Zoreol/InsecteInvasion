@@ -132,11 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 825647330361236299, guid: 9518d7f87f2e79e45951154a20028488, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 825647330361236299, guid: 9518d7f87f2e79e45951154a20028488, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1238257740819512533, guid: 9518d7f87f2e79e45951154a20028488, type: 3}
       propertyPath: m_SortingLayerID
@@ -221,6 +221,10 @@ PrefabInstance:
     - target: {fileID: 8290152098520618095, guid: 9518d7f87f2e79e45951154a20028488, type: 3}
       propertyPath: m_Name
       value: SpiderTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290152098520618095, guid: 9518d7f87f2e79e45951154a20028488, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9518d7f87f2e79e45951154a20028488, type: 3}
@@ -592,6 +596,8 @@ GameObject:
   - component: {fileID: 1384878456}
   - component: {fileID: 1384878455}
   - component: {fileID: 1384878454}
+  - component: {fileID: 1384878457}
+  - component: {fileID: 1384878458}
   m_Layer: 0
   m_Name: Player
   m_TagString: Mantis
@@ -608,8 +614,8 @@ Transform:
   m_GameObject: {fileID: 1384878446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: 0.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1712758915}
   m_Father: {fileID: 0}
@@ -663,7 +669,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -677,7 +683,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 15, y: 15}
   m_EdgeRadius: 0
 --- !u!212 &1384878456
 SpriteRenderer:
@@ -731,6 +737,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1384878457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384878446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f5098c214edcc4782d5f7001d40923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animUnit: {fileID: 1384878458}
+  life: 99
+  maxLife: 99
+  attack: 1
+  speed: 0
+  canAttack: 1
+  inAttack: 0
+  InFormation: 0
+  PlayerTarget: 0
+  positionCible: {x: 0, y: 0}
+  attackingEnnemi: 0
+  rotationSpeed: 0
+--- !u!95 &1384878458
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384878446}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1712758914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1139,10 @@ PrefabInstance:
     - target: {fileID: 825647330361236299, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290152098235757350, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8290152098235757353, guid: 3f83e11e8b5776e47b9bc474ed17dc61, type: 3}
       propertyPath: m_LocalScale.x
