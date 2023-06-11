@@ -17,7 +17,6 @@ public class BossAraignée : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] public List<Animator> pawAnimator;
 
-    private bool inAttack;
     private bool canRandom = true;
     int randomAttack;
     bool nullPaw;
@@ -93,7 +92,6 @@ public class BossAraignée : MonoBehaviour
             unitMantisList[i].GetComponent<UnityManager>().life -= 1f;
         }
 
-        inAttack = false;
         canRandom = true;
     }
 

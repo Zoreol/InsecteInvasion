@@ -32,8 +32,6 @@ public class UnityManager : MonoBehaviour
         ForDeplacement();
         //si je suis en formation j'attack
 
-        //ForDeplacement();
-
         if (InFormation)
         {
             animUnit.SetTrigger("Attack");
@@ -54,6 +52,7 @@ public class UnityManager : MonoBehaviour
         // Vérifie si l'objet est arrivé à la cible
         if (direction.magnitude < 0.1f)
         {
+            //Je regarde pour me mettre en Idle ou en Formation a un point donner
             if (canAttack)
             {
                 InFormation = true;
@@ -68,6 +67,7 @@ public class UnityManager : MonoBehaviour
         }
         else
         {
+            // je marche et j'annule ma formation
                 animUnit.SetBool("Marche",true);
 
                 InFormation = false;
@@ -94,7 +94,7 @@ public class UnityManager : MonoBehaviour
             StartCoroutine(OnAttackEnnemi());
         }
     }
-    //fonction pour lui dire qu'il doit stun et pour se faire appeler
+    //fonction pour lui dire qu'il doit stun et pour se faire appeler depuis une unity joueur
     public void Stuning()
     {
         StartCoroutine(InStun());
@@ -102,8 +102,10 @@ public class UnityManager : MonoBehaviour
      IEnumerator InStun()
     {
         //quand je suis stun
+        //je stock mes donnes
         float speedbase = speed;
         float attackbase = attack;
+        //je peux plus me deplacer
         speed = 0;
         attack = 0;
         inAttack = false;
@@ -111,6 +113,7 @@ public class UnityManager : MonoBehaviour
         float timeStun = 3f;
         yield return new WaitForSeconds(timeStun);
 
+        //je reprend mes donnes pour pouvoir me deplacer
         speed = speedbase;
         attack = attackbase;
         inAttack = true;
@@ -130,10 +133,12 @@ public class UnityManager : MonoBehaviour
         //prend des degats
         animUnit.SetBool("Touche",true);
         life--;
+
             yield return new WaitForSeconds(0.5f);
         
         if (life <= 0f)
         {
+            //la mort si j'ai plus de vie
             StartCoroutine(InDeath());
         }
         animUnit.SetBool("Touche", false);
