@@ -183,11 +183,11 @@ public class IAUnitManager : UnityManager
         {
             animUnit.SetBool("Marche", false);
         }
-
+        /*
         if (collision.GetComponent<UnityManager>().attackingEnnemi && !TakingDamage)
         {
             TakingDamage = true;
            StartCoroutine(TakeDamage());
-        }
+        }*/
     }
 }
