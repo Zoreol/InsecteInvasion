@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Navigation_NidPuceron : MonoBehaviour
 {
+    [SerializeField] private GameObject _skin_Recolteuse;
     private NavMeshAgent navMeshAgent;
     [SerializeField] private GameObject nid1;
     [SerializeField] private GameObject baseposition;
@@ -14,6 +15,8 @@ public class Navigation_NidPuceron : MonoBehaviour
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        nid1 = GameObject.Find("Nid_Puceron");
+        baseposition = GameObject.Find("batiment_recolte");
     }
     private void OnEnable()
     {
@@ -22,6 +25,7 @@ public class Navigation_NidPuceron : MonoBehaviour
     private void Update()
     {
         RecolteNidPuceron();
+        ChangeSkin();
     }
     void RecolteNidPuceron()
     {
@@ -32,6 +36,15 @@ public class Navigation_NidPuceron : MonoBehaviour
         if (Recolte && Possede_puceron)
         {
             navMeshAgent.SetDestination(baseposition.transform.position);
+        }
+    }
+    void ChangeSkin()
+    {
+        if(this.tag == "Recolteuse")
+        {
+            //Debug.Log(transform.GetChild(3));
+            transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            _skin_Recolteuse.SetActive(true);
         }
     }
 }
