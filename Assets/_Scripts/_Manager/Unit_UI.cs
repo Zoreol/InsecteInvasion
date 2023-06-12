@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Unit_UI : MonoBehaviour
 {
+    [SerializeField] private Liste_Mante lm;
     // On recupère dans un tableau les différents visuel de mante 
 
     [SerializeField] private GameObject[] visualUnits;
@@ -48,4 +49,5 @@ public class Unit_UI : MonoBehaviour
         
         
     }
+    
 }

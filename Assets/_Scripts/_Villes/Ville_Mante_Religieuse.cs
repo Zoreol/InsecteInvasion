@@ -8,6 +8,7 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     [SerializeField] private GameObject _villeInterface;
     [SerializeField] private GameObject _villeBouton;
     [SerializeField] private GameObject _SpawnMante;
+    [SerializeField] private Ressource_compteur rc;
     private int _unit_creating;
     private int _unitNumberCreating = 0;
     private bool _creationUnit;
@@ -38,10 +39,11 @@ public class Ville_Mante_Religieuse : MonoBehaviour
     }*/
     public void SpawnUnitBase()
     {
-        if((Unit_number.number_unit + _unitNumberCreating) < maxUnit)
+        if((Unit_number.number_unit + _unitNumberCreating) < maxUnit && rc.nbRessources >= 3)
         {
             _unit_creating = 0;
             _unitNumberCreating++;
+            rc.nbRessources = rc.nbRessources - 3;
         }
     }
     public void LeaveUnitUI()

@@ -13,8 +13,8 @@ public class Detection_Ville_Gendarme : MonoBehaviour
             _boutonVille.SetActive(true);
         }
     }
-    private void OnMouseExit()
+    /*private void OnMouseExit()
     {
         _boutonVille.SetActive(false);
-    }
+    }*/
 }

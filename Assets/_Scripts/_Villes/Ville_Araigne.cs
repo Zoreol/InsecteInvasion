@@ -11,11 +11,17 @@ public class Ville_Araigne : MonoBehaviour
     [SerializeField] private GameObject _formation;
     [SerializeField] float _timer_siege = 45;
     [SerializeField] Ville_Araigne va;
+    [SerializeField] private GameObject _spider_Boss;
+    [SerializeField] private GameObject _spider_Boss_Spawn;
+    [SerializeField] private bool _siege = false;
+    [SerializeField] private bool _boss_Spawn = false;
     private float _timeSpawn = 30;
     private int _maxUnit = 10;
     public int _currentUnit = 0;
-    private bool _siege = false;
-    private bool _boos_killed = false;
+    public bool _boos_killed = false;
+    
+
+    public bool Ville_Spider_Captured = false;
 
     private void Update()
     {
@@ -24,16 +30,18 @@ public class Ville_Araigne : MonoBehaviour
     }
     void SiegeTime()
     {
-        /*if(_siege && !_boos_killed)
+        if(_siege && !_boos_killed && !_boss_Spawn)
         {
-            Instantiate(_boss_araigne);
-        }*/
-        if (_siege /*&& _boos_killed*/)
+            _boss_Spawn = true;
+            Instantiate(_spider_Boss, _spider_Boss_Spawn.transform);
+        }
+        if (_siege && _boos_killed)
         {
             _timer_siege -= Time.deltaTime;
             if (_timer_siege <= 0)
             {
                 //ville capturer
+                Ville_Spider_Captured = true;
                 //
                 va.enabled = false;
             }

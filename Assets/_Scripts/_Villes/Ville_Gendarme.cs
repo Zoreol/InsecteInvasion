@@ -11,6 +11,7 @@ public class Ville_Gendarme : MonoBehaviour
     [SerializeField] private GameObject _SpawnMante;
     [SerializeField] private GameObject _mantank_bouton;
     [SerializeField] private GameObject _base_unit;
+    [SerializeField] private Ressource_compteur rc;
     //[SerializeField] private GameObject _Direction_spawn_unit;
     private int _unit_creating;
     private int _unitNumberCreating = 0;
@@ -29,7 +30,7 @@ public class Ville_Gendarme : MonoBehaviour
     {
         CreateUnitStart();
         TimeBeforeUnitCreation();
-        IntteractionSpawnUnit();
+        //IntteractionSpawnUnit();
     }
 
     public void AffichageVilleInterface()
@@ -41,20 +42,21 @@ public class Ville_Gendarme : MonoBehaviour
     public void SpawnUnitBase()
     {
         //if ((numberUnit + _unitNumberCreating) < maxUnit)
-        if ((Unit_number.number_unit + _unitNumberCreating) < maxUnit)
+        if ((Unit_number.number_unit + _unitNumberCreating) < maxUnit && rc.nbRessources >= 3)
         {
             _unit_creating = 0;
             _unitNumberCreating++;
+            rc.nbRessources = rc.nbRessources - 3;
         }
     }
-    public void SpawnUnitTank()
+    /*public void SpawnUnitTank()
     {
         if ((Unit_number.number_unit + _unitNumberCreating) < maxUnit)
         {
             _unit_creating = 1;
             _unitNumberCreating++;
         }
-    }
+    }*/
     public void LeaveUnitUI()
     {
         _villeInterface.SetActive(false);
@@ -95,7 +97,7 @@ public class Ville_Gendarme : MonoBehaviour
             Debug.Log(Unit_number.number_unit);
         }
     }
-    void IntteractionSpawnUnit()
+    /*void IntteractionSpawnUnit()
     {
         if (_unitNumberCreating > 0 && _unit_creating == 0)
         {
@@ -110,7 +112,7 @@ public class Ville_Gendarme : MonoBehaviour
             _mantank_bouton.GetComponent<Button>().interactable = true;
             _base_unit.GetComponent<Button>().interactable = true;
         }
-    }
+    }*/
     public void Supression_Mantes()
     {
         Unit_number.number_unit = 0;

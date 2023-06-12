@@ -6,20 +6,22 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
 {
     public Ville_Gendarme vg;
     public int _currentUnit = 0;
+    public bool Captured = false;
     [SerializeField] private GameObject _gendarme;
     [SerializeField] private GameObject _spawn;
     [SerializeField] private GameObject _floor_gendarme;
     [SerializeField] private GameObject _formation;
     [SerializeField] float _timer_siege = 45;
     [SerializeField] Ville_Gendarme_Sauvage vgs;
+    [SerializeField] private GameObject _bouton_Gendarme;
     private float _timeSpawn = 30;
     private int _maxUnit = 10;
     private bool _siege = false;
-    private Tutoriel tutoriel;
+    //private Tutoriel tutoriel;
     
     private void Awake()
     {
-        tutoriel = FindObjectOfType<Tutoriel>();
+        //tutoriel = FindObjectOfType<Tutoriel>();
         vg.selectionOn = true;
     }
 
@@ -37,12 +39,14 @@ public class Ville_Gendarme_Sauvage : MonoBehaviour
             {
                 vg.enabled = true;
                 vg.selectionOn = false;
+                _bouton_Gendarme.SetActive(true);
+                Captured = true;
                 //ville capturer
-                if (!tutoriel._gendarmeTownCapture)
+                /*if (!tutoriel._gendarmeTownCapture)
                 {
                     tutoriel._gendarmeTownCapture = true;
-                }
-                
+                }*/
+
                 vgs.enabled = false;
             }
         }

@@ -6,6 +6,7 @@ public class Récolte_Base : MonoBehaviour
 {
     [SerializeField] private List<GameObject> recolteuse = new List<GameObject>();
     [SerializeField]  private float time_unload = 3;
+    [SerializeField] private Ressource_compteur rc;
     void Start()
     {
         
@@ -41,7 +42,7 @@ public class Récolte_Base : MonoBehaviour
                 recolteuse[0].GetComponent<Navigation_NidPuceron>().Possede_puceron = false;
                 recolteuse.Remove(collision.gameObject);
                 time_unload = 3;
-
+                rc.nbRessources = rc.nbRessources + 5;
                 // add 5 aux ressource
             }
         }

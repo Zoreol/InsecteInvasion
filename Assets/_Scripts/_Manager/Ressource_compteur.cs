@@ -7,7 +7,7 @@ using TMPro;
 public class Ressource_compteur : MonoBehaviour
 {
     // Nb de ressource disponible 
-    static int nbRessources = 0;
+    public  int nbRessources = 0;
 
     [SerializeField] private TMP_Text compteur;
 
