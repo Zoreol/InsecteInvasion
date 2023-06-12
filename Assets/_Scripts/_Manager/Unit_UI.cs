@@ -6,13 +6,15 @@ using UnityEngine.EventSystems;
 
 public class Unit_UI : MonoBehaviour
 {
-    [SerializeField] private Liste_Mante lm;
+    [SerializeField] private Liste_Mante _lm;
+    [SerializeField] private List<GameObject> _visual_List = new List<GameObject>();
+    [SerializeField] private Sprite[] _sprite;
     // On recupère dans un tableau les différents visuel de mante 
 
-    [SerializeField] private GameObject[] visualUnits;
+    public GameObject[] visualUnits;
 
     // On récupère le parents qui affichera les unité 
-    [SerializeField] private GameObject parentUnits;
+    public GameObject parentUnits;
     
     void Start()
     {
@@ -22,6 +24,8 @@ public class Unit_UI : MonoBehaviour
    
     void Update()
     {
+        VisualMissing();
+        AffichageRightUnit();
         if (Input.GetKeyUp(KeyCode.F))
             {
             CreateVisuel(visualUnits[0], parentUnits);
@@ -30,12 +34,13 @@ public class Unit_UI : MonoBehaviour
 
     // Fonction pour créer le visuel
 
-    void CreateVisuel(GameObject visualToDisplay, GameObject parent)
+    public void CreateVisuel(GameObject visualToDisplay, GameObject parent)
     {
         GameObject unitsVis = Instantiate(visualToDisplay, parent.transform);
         Button unitsSuppButton = unitsVis.GetComponentInChildren<Button>();
         Debug.Log(unitsSuppButton);
         unitsSuppButton.onClick.AddListener(SuppVisuel);
+        _visual_List.Add(unitsVis);
     }
 
     // Fonction pour supprimer le visuel
@@ -48,6 +53,33 @@ public class Unit_UI : MonoBehaviour
         Destroy(buttonSelected.transform.parent.gameObject);
         
         
+    }
+    void VisualMissing()
+    {
+        for (int i = 0; i < _visual_List.Count; i++)
+        {
+            if(_visual_List[i] == null)
+            {
+                Destroy(_lm.mantes[i].gameObject);
+                _visual_List.RemoveAt(i);
+            }
+        }
+    }
+    void AffichageRightUnit()
+    {
+        for (int i = 0; i < _lm.mantes.Count; i++)
+        {
+            if(_lm.mantes[i].tag == "Recolteuse" && _lm.mantes[i].GetComponent<Animator_Change>().Changed_Sprite == false)
+            {
+                _visual_List[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = _sprite[0];
+                _lm.mantes[i].GetComponent<Animator_Change>().Changed_Sprite = true;
+            }
+            if (_lm.mantes[i].tag == "Gendarme_Mante" && _lm.mantes[i].GetComponent<Animator_Change>().Changed_Sprite == false)
+            {
+                _visual_List[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = _sprite[1];
+                _lm.mantes[i].GetComponent<Animator_Change>().Changed_Sprite = true;
+            }
+        }
     }
     
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Animator_Change : MonoBehaviour
 {
+    public bool Changed_Sprite = false;
     [SerializeField] private RuntimeAnimatorController[] animator_Controller;
     [SerializeField] private Liste_Mante lm;
     Animator animator;

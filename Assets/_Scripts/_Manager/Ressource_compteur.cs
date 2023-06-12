@@ -31,6 +31,7 @@ public class Ressource_compteur : MonoBehaviour
         
 
         UpdateSprite();
+        compteur.text = nbRessources.ToString();
     }
 
     // Fonction pour ajouter des ressources 
