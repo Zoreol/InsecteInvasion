@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ville_Mante_Religieuse : MonoBehaviour
 {
+    [SerializeField] private GameObject _smoke;
+    [SerializeField] private GameObject _particle_system;
     [SerializeField] private GameObject[] _mantes;
     [SerializeField] private GameObject _villeInterface;
     [SerializeField] private GameObject _villeBouton;
@@ -71,6 +73,8 @@ public class Ville_Mante_Religieuse : MonoBehaviour
             Unit_number.number_unit++;
             _unitNumberCreating--;
             Instantiate(_mantes[0], _SpawnMante.transform);
+            _smoke.GetComponent<ParticleSystem>().Play();
+            _particle_system.GetComponent<ParticleSystem>().Play();
             // info spawn unité
             //
             /*if (!tutoriel._unitCreation)

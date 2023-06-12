@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Ville_Gendarme : MonoBehaviour
 {
+
+    [SerializeField] private GameObject _smoke;
+    [SerializeField] private GameObject _particle_system;
     [SerializeField] private GameObject[] _mantes;
     [SerializeField] private GameObject _villeInterface;
     [SerializeField] private GameObject _villeBouton;
@@ -82,8 +85,10 @@ public class Ville_Gendarme : MonoBehaviour
             Unit_number.number_unit++;
             _unitNumberCreating--;
             Instantiate(_mantes[_unit_creating], _SpawnMante.transform);
+            _smoke.GetComponent<ParticleSystem>().Play();
+            _particle_system.GetComponent<ParticleSystem>().Play();
             //info spawn tank
-            
+
 
             if (_unit_creating == 0)
             {
