@@ -30,12 +30,12 @@ public class Ville_Araigne : MonoBehaviour
     }
     void SiegeTime()
     {
-        if(_siege && !_boos_killed && !_boss_Spawn)
+        /*if(_siege && !_boos_killed && !_boss_Spawn)
         {
             _boss_Spawn = true;
             Instantiate(_spider_Boss, _spider_Boss_Spawn.transform);
-        }
-        if (_siege && _boos_killed)
+        }*/
+        if (_siege /*&& _boos_killed*/)
         {
             _timer_siege -= Time.deltaTime;
             if (_timer_siege <= 0)

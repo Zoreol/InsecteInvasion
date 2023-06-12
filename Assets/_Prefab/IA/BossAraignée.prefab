@@ -540,6 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8387583615995239072}
   life: 5
 --- !u!61 &8387583615995239077
@@ -666,6 +668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8387583615997861270}
   life: 5
 --- !u!61 &8387583615997861275
@@ -792,6 +796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8387583616346538412}
   life: 5
 --- !u!61 &8387583616346538417
@@ -918,6 +924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8387583616947955278}
   life: 5
 --- !u!61 &8387583616947955283
@@ -1044,6 +1052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8387583617039427430}
   life: 5
 --- !u!61 &8387583617039427435
@@ -1313,6 +1323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8387583617424522144}
   life: 5
 --- !u!61 &8387583617424522149
@@ -1397,11 +1409,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48d4ec1811f12e44ae394d1cfb94872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 0
+  maxLife: 0
   Cooldown: 488
   unitMantisList: []
   wantAttack: 0
   wantAttackBase: 0
   wantAttackAway: 0
+  silk: {fileID: 0}
+  animator: {fileID: 0}
+  pawAnimator: []
 --- !u!61 &8387583617931313406
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1526,6 +1543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8387583617937094470}
   life: 5
 --- !u!61 &8387583617937094475
@@ -1652,6 +1671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8387583618085991634}
   life: 5
 --- !u!61 &8387583618085991639
@@ -1742,35 +1763,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4498635773549893092, guid: 47651fb7df04aa44da3fea8b7cd37522, type: 3}
   m_PrefabInstance: {fileID: 4118907503260658296}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6898061153520979284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524407585223524252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d95219673490a44c98789a7a7658af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  damage: 0
-  _maxHealth: 60
-  anim: {fileID: 0}
---- !u!114 &1024462701736596306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524407585223524252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa947c83108086b43a12c827e22f121f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selected_GameObject: {fileID: 368729491332474993}
 --- !u!61 &1698208468193080338
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1797,6 +1789,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.8, y: 12.8}
   m_EdgeRadius: 0
+--- !u!114 &1024462701736596306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524407585223524252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa947c83108086b43a12c827e22f121f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selected_GameObject: {fileID: 368729491332474993}
+--- !u!114 &6898061153520979284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524407585223524252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d95219673490a44c98789a7a7658af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damage: 0
+  _maxHealth: 60
+  anim: {fileID: 0}
 --- !u!1 &1085923644052853126 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3907071963805072382, guid: 47651fb7df04aa44da3fea8b7cd37522, type: 3}
@@ -1814,6 +1835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 1085923644052853126}
   life: 5
 --- !u!4 &3190548506448708518 stripped
@@ -1838,6 +1861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 3430214276558398549}
   life: 5
 --- !u!1 &4250828700536667389 stripped
@@ -1857,6 +1882,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 4250828700536667389}
   life: 5
 --- !u!1 &5609853344873329642 stripped
@@ -1876,6 +1903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 5609853344873329642}
   life: 5
 --- !u!1 &6172330164938181002 stripped
@@ -1895,6 +1924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 6172330164938181002}
   life: 5
 --- !u!1 &6620537400173882479 stripped
@@ -1914,6 +1945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 6620537400173882479}
   life: 5
 --- !u!1 &7348533573454954362 stripped
@@ -1933,6 +1966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 7348533573454954362}
   life: 5
 --- !u!1 &8535444128791389364 stripped
@@ -1952,5 +1987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4aae1bdf36324d947fec0f71ea57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpider: {fileID: 0}
+  animator: {fileID: 0}
   partDestruction: {fileID: 8535444128791389364}
   life: 5
