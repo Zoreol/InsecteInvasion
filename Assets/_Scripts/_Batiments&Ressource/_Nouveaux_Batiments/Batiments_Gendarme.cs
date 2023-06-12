@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Batiments_Gendarme : MonoBehaviour
 {
-    [SerializeField] private float timerChange = 10;
+    [SerializeField] private float timerChange = 5;
     [SerializeField] private Ressource_compteur rc;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class Batiments_Gendarme : MonoBehaviour
                 collision.gameObject.GetComponentInChildren<Commune_Caracteristique_Mantis>().health = 30;
                 collision.gameObject.GetComponentInChildren<Commune_Caracteristique_Mantis>().damage = 2;
                 rc.nbRessources = rc.nbRessources - 5;
-                timerChange = 10;
+                timerChange = 5;
             }
         }
     }
@@ -32,7 +32,7 @@ public class Batiments_Gendarme : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            timerChange = 10;
+            timerChange = 5;
         }
     }
 }
