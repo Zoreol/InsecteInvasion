@@ -41,7 +41,7 @@ public class Menu_end : MonoBehaviour
 
     private bool lastActivation = true;
 
-    public float time;
+    private float time;
     
     void Start()
     {
@@ -88,7 +88,7 @@ public class Menu_end : MonoBehaviour
         WriteDialogue(timeBetweenTalk + 10 , " Félicitation jeune mante ");
         WriteDialogue(timeBetweenTalk + 20, " Vous avez appris à détruire les autres ");
         WriteDialogue(timeBetweenTalk + 28, "Cependant, nous n'avons pas gagné la guerre");
-        WriteDialogue(timeBetweenTalk + 39, "D'autre espèce autre que nous subsistent");
+        WriteDialogue(timeBetweenTalk + 39, "Des espèces autres que nous subsistent");
         WriteDialogue(timeBetweenTalk + 47, " Tenez vous prêt ! ");
         WriteDialogue(timeBetweenTalk + 52, " Le prochain combat est proche");
         WriteDialogue(timeBetweenTalk + 58, "Nous reviendrons vers vous");
